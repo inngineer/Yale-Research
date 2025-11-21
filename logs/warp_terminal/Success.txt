@@ -1,0 +1,186 @@
+ LD_PRELOAD=./identity.so /opt/warpdotdev/warp-terminal/warp 
+11:04:47 [INFO] Spawning terminal server process...
+11:04:47 [INFO] Running terminal server...
+11:04:47 [WARN] Tried to initialize the wayland data control protocol clipboard, but failed. Falling back to the X11 clipboard protocol. The error was: Unknown error while interacting with the clipboard: A required Wayland protocol (ext-data-control, or wlr-data-control version 1) is not supported by the compositor
+11:04:47 [INFO] Running app with windowing system: X11
+11:04:47 [ERROR] Failed to read API keys from secure storage: item not found
+11:04:47 [WARN] Unable to find extension: VK_EXT_physical_device_drm
+11:04:47 [INFO] Unable to read user from secure storage: SecureStorageError(NotFound)
+11:04:47 [WARN] SQLite error 283 (A WAL mode database file was recovered): recovered 83 frames from WAL file /home/ingineer/.local/state/warp-terminal/warp.sqlite-wal
+11:04:47 [INFO] Connecting to SQLite database
+11:04:47 [INFO] Initializing crash reporting Some("linux_stable_release") with tag "v0.2025.10.15.08.12.stable_01"...
+[INTERCEPTOR] Starting 1-second startup delay...
+[INTERCEPTOR] ...Delay finished. Faking hostname and resuming startup.
+11:04:48 [INFO] Starting warp with channel state ChannelState { channel: Stable, app_id: AppId { qualifier: "dev", organization: "warp", application_name: "Warp" }, additional_features: {}, firebase_api_key: "AIzaSyBdy3O3S9hrdayLJxJ7mriBR4qgUaUygAs", server_root_url: "https://app.warp.dev", ws_server_url: "wss://rtc.app.warp.dev/graphql/v2", session_sharing_server_url: Some("wss://sessions.app.warp.dev"), rudderstack_config: RudderStackConfig { write_key: "2iyG8S1RaV4XTX6SEypetFSEbLK", root_url: "https://warpianwzlfqdq.dataplane.rudderstack.com", ugc_write_key: "2uBazVfcqYBDYSOHnqSVx45GpTV" }, releases_base_url: "https://releases.warp.dev", sentry_url: "https://0195a81da0714f55a93ee4624825f9ec@o540343.ingest.sentry.io/5658526", logfile_name: "warp.log", telemetry_file_name: "warp.telemetry", show_autoupdate_menu_items: true } and version Some("v0.2025.10.15.08.12.stable_01")
+[INTERCEPTOR] Starting 1-second startup delay...
+11:04:48 [INFO] Computing available system fonts
+11:04:48 [INFO] Initializing app services
+11:04:48 [INFO] Initialized execution profile model with state: Unsynced
+11:04:48 [INFO] Loaded 46 font families
+11:04:48 [INFO] Checking for update on channel stable_release. Update id is a1XCn0w
+11:04:48 [INFO] Fetching channel versions (without changelogs) from Warp server
+11:04:48 [INFO] Loaded onnx classifier
+11:04:48 [INFO] dispatching global action for root_view:open_from_restored
+11:04:48 [WARN] Detected skylake derivative running on mesa i915. Clears to srgb textures will use manual shader clears.
+11:04:48 [INFO] Enabled wgpu backends: Backends(NOOP | VULKAN | GL | METAL | DX12 | BROWSER_WEBGPU)
+11:04:48 [INFO] Available wgpu adapters (in priority order):
+11:04:48 [INFO] IntegratedGpu: Intel(R) UHD Graphics (TGL GT2)
+	Backend: Vulkan
+	Driver: Intel open-source Mesa driver (Mesa 25.0.7-0ubuntu0.24.04.2)
+	Can present: true
+	Supported texture format: Some(Bgra8UnormSrgb)
+	Supported alpha mode: [PreMultiplied, Inherit]
+11:04:48 [INFO] IntegratedGpu: Mesa Intel(R) UHD Graphics (TGL GT2)
+	Backend: Gl
+	Driver: Unknown (4.6 (Core Profile) Mesa 25.0.7-0ubuntu0.24.04.2)
+	Can present: true
+	Supported texture format: Some(Rgba8UnormSrgb)
+	Supported alpha mode: [Opaque]
+11:04:48 [INFO] Cpu: llvmpipe (LLVM 20.1.2, 256 bits)
+	Backend: Vulkan
+	Driver: llvmpipe (Mesa 25.0.7-0ubuntu0.24.04.2 (LLVM 20.1.2))
+	Can present: true
+	Supported texture format: Some(Bgra8UnormSrgb)
+	Supported alpha mode: [PreMultiplied, Inherit]
+11:04:48 [INFO] Verifying adapter "Intel(R) UHD Graphics (TGL GT2)" is valid...
+11:04:48 [INFO] Using Vulkan IntegratedGpu (Intel(R) UHD Graphics (TGL GT2)) for rendering new window.
+11:04:48 [INFO] window resized
+11:04:48 [INFO] dispatching global action for workspace:save_app
+11:04:48 [INFO] dispatching global action for workspace:save_app
+11:04:48 [INFO] dispatching global action for workspace:save_app
+[INTERCEPTOR] Starting 1-second startup delay...
+[INTERCEPTOR] ...Delay finished. Faking hostname and resuming startup.
+11:04:49 [INFO] Start to send telemetry events to RudderStack
+11:04:49 [INFO] Start to send telemetry events to RudderStack
+11:04:49 [INFO] Start to send telemetry events to RudderStack
+11:04:49 [INFO] Start to send telemetry events to RudderStack
+11:04:49 [INFO] fetching updated cloud objects
+11:04:49 [INFO] forcing sync of all objects
+[INTERCEPTOR] ...Delay finished. Faking hostname and resuming startup.
+11:04:49 [INFO] active window changed: Some(WindowId(0))
+11:04:49 [INFO] dispatching global action for root_view:update_quake_mode_state
+11:04:49 [INFO] dispatching global action for workspace:save_app
+11:04:49 [WARN] Failed to retrieve initial request limit info: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out
+11:04:49 [INFO] get_workspaces_metadata_for_user: request failed with error Error polling for workspace metadata changes: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+11:04:49 [WARN] fetch_changed_objects: request failed with error Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+11:04:49 [INFO] Received channel versions from Warp server: dev: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.22.19.46.dev_00", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2023.05.12.08.03.dev_00"), last_prominent_update: Some("v0.2025.03.05.08.02.dev_00"), is_rollback: None }, overrides: [] }; preview: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.15.08.12.preview_01", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2025.04.30.08.11.preview_03"), last_prominent_update: Some("v0.2025.09.17.08.11.preview_01"), is_rollback: None }, overrides: [] }; canary: ChannelVersion { version_info: VersionInfo { version: "v0.2022.09.29.08.08.canary_00", version_for_new_users: None, update_by: None, soft_cutoff: None, last_prominent_update: None, is_rollback: None }, overrides: [] }; beta: ChannelVersion { version_info: VersionInfo { version: "v0.2024.12.18.08.02.beta_00", version_for_new_users: None, update_by: None, soft_cutoff: None, last_prominent_update: None, is_rollback: None }, overrides: [] }; stable: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.15.08.12.stable_01", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2025.09.01.20.54.stable_06"), last_prominent_update: Some("v0.2025.10.15.08.12.stable_01"), is_rollback: None }, overrides: [] }
+11:04:49 [INFO] Already up to date with v0.2025.10.15.08.12.stable_01
+11:04:49 [INFO] No update available
+11:04:49 [INFO] Flushed telemetry events.
+11:04:49 [INFO] dispatching typed action: warp::auth::auth_view_body::AuthViewBodyAction::Signup
+11:04:49 [INFO] Start to send telemetry events to RudderStack
+11:04:51 [INFO] fetching updated cloud objects
+11:04:51 [INFO] forcing sync of all objects
+11:04:51 [WARN] fetch_changed_objects: request failed with error Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+11:04:51 [INFO] get_workspaces_metadata_for_user: request failed with error Error polling for workspace metadata changes: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+11:04:53 [INFO] active window changed: None
+11:04:53 [INFO] dispatching global action for root_view:update_quake_mode_state
+11:04:53 [INFO] dispatching global action for workspace:save_app
+11:04:55 [INFO] fetching updated cloud objects
+11:04:55 [INFO] forcing sync of all objects
+11:04:55 [WARN] fetch_changed_objects: request failed with error Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+11:04:55 [INFO] get_workspaces_metadata_for_user: request failed with error Error polling for workspace metadata changes: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+11:05:03 [INFO] fetching updated cloud objects
+11:05:03 [INFO] forcing sync of all objects
+11:05:03 [WARN] fetch_changed_objects: request failed with error Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Retries exhausted.
+11:05:05 [INFO] get_workspaces_metadata_for_user: request failed with error Error polling for workspace metadata changes: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Retries exhausted.
+11:05:19 [INFO] Dropping empty RudderStack telemetry batch
+11:05:19 [INFO] Flushed telemetry events.
+11:05:34 [INFO] received url Url { scheme: "warp", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("auth")), port: None, path: "/desktop_redirect", query: Some("refresh_token=AMf-vBzEEjoY2SW6W1miOtDHBoJbFduNx-jUcMBwJ8YzD7sVxkoWXlGb3gishFfFFnoLD6hr4AuDQZeI4B50TDuuY_VST14euDC54bY7sBEXdhXNF277B1_XfcJmio4vhQj17FkbMi5QvnLv6nbWdulVEsqt40bfjh4Uz4AfNa81CwV_xeQR64shGgfNnG5LX4ZYxPZWYyLfs0Q-k_mNcivADsKH4GT9pGIxMHAel2UFPnYp-qvnBpo&is_onboarded=false&user_uid=MLogK3WgWkff8gqOVoptobHCwbv1&deleted_anonymous_user=false&state=72620592-a687-4e8a-8e86-43c1a6d32262"), fragment: None }
+11:05:34 [INFO] Dispatched auth url to window 0
+11:05:34 [INFO] dispatching action for "root_view:handle_incoming_auth_url"
+11:05:34 [INFO] active window changed: Some(WindowId(0))
+11:05:34 [INFO] dispatching global action for root_view:update_quake_mode_state
+11:05:34 [INFO] dispatching global action for workspace:save_app
+11:05:35 [INFO] Opting first-time user into cloud preferences
+11:05:35 [INFO] fetching updated cloud objects
+11:05:35 [INFO] Reconstructing database, but it already exists
+11:05:35 [INFO] Settings sync enabled setting changed. Resyncing cloud preferences. Force cloud to match local: Yes
+11:05:35 [INFO] Checking for update on channel stable_release. Update id is QGcBP2j
+11:05:35 [INFO] Fetching channel versions (without changelogs) from Warp server
+11:05:35 [INFO] Start to send telemetry events to RudderStack
+11:05:35 [INFO] Connecting to SQLite database
+11:05:35 [INFO] SQLite Writer is resumed
+11:05:35 [INFO] Start to send telemetry events to RudderStack
+11:05:35 [WARN] Tried to render share modal without a model
+11:05:35 [WARN] SuggestedAgentModeWorkflowModal has not been initialized
+11:05:35 [WARN] No alert dialog was set for the native modal
+11:05:35 [INFO] Received channel versions from Warp server: dev: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.22.19.46.dev_00", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2023.05.12.08.03.dev_00"), last_prominent_update: Some("v0.2025.03.05.08.02.dev_00"), is_rollback: None }, overrides: [] }; preview: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.15.08.12.preview_01", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2025.04.30.08.11.preview_03"), last_prominent_update: Some("v0.2025.09.17.08.11.preview_01"), is_rollback: None }, overrides: [] }; canary: ChannelVersion { version_info: VersionInfo { version: "v0.2022.09.29.08.08.canary_00", version_for_new_users: None, update_by: None, soft_cutoff: None, last_prominent_update: None, is_rollback: None }, overrides: [] }; beta: ChannelVersion { version_info: VersionInfo { version: "v0.2024.12.18.08.02.beta_00", version_for_new_users: None, update_by: None, soft_cutoff: None, last_prominent_update: None, is_rollback: None }, overrides: [] }; stable: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.15.08.12.stable_01", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2025.09.01.20.54.stable_06"), last_prominent_update: Some("v0.2025.10.15.08.12.stable_01"), is_rollback: None }, overrides: [] }
+11:05:35 [INFO] Already up to date with v0.2025.10.15.08.12.stable_01
+11:05:35 [INFO] No update available
+11:05:35 [INFO] User has no synced privacy settings.
+11:05:35 [INFO] Ensuring no duplicate cloud prefs
+11:05:35 [INFO] Initial load complete, syncing cloud preferences. Force cloud to match local: Yes
+11:05:35 [INFO] Waiting to sync legacy cloud preference with storage key CrashReportingEnabled until it is explicitly set
+11:05:35 [INFO] Waiting to sync legacy cloud preference with storage key TelemetryEnabled until it is explicitly set
+11:05:35 [INFO] Attempting to start websocket connection in CloudObjects::Listener
+11:05:35 [INFO] Warp Drive privacy preferences are not set, updating them to match legacy user settings.
+11:05:35 [INFO] Warp Drive privacy preferences are set, using those for telemetry and crash reporting
+11:05:35 [INFO] Not opting existing user into cloud preferences
+11:05:35 [INFO] Ensuring no duplicate cloud prefs
+11:05:35 [INFO] Initial load complete, syncing cloud preferences. Force cloud to match local: No
+11:05:35 [INFO] Updating local preference with storage key InputBoxTypeSetting and value "Universal" to match cloud preference
+11:05:35 [INFO] Updating local preference with storage key AIRequestQuotaInfoSetting and value {"cycle_history":[{"banner_state":{"dismissed":false},"end_date":"2025-11-23T08:05:24.396928Z","was_quota_exceeded":false}]} to match cloud preference
+11:05:35 [INFO] Updating local preference with storage key ShouldAddAgentModeChip and value false to match cloud preference
+11:05:35 [INFO] Updating local preference with storage key CrashReportingEnabled and value true to match cloud preference
+11:05:35 [INFO] Updating local preference with storage key NextCommandSuggestionsUpgradeBannerNumTimesShownThisPeriod and value 0 to match cloud preference
+11:05:35 [INFO] Updating local preference with storage key DidShowCodeLaunchModal and value true to match cloud preference
+11:05:35 [INFO] Updating local preference with storage key IsSettingsSyncEnabled and value true to match cloud preference
+11:05:35 [INFO] Updating local preference with storage key TelemetryEnabled and value true to match cloud preference
+11:05:35 [INFO] Warp Drive privacy preferences are set, using those for telemetry and crash reporting
+11:05:35 [INFO] notifying view observers and updating windows for timer id 0
+11:05:36 [INFO] Websocket is ready. Getting latest set of updated objects from CloudObjects::Listener
+11:05:36 [INFO] fetching updated cloud objects
+11:05:36 [INFO] dispatching typed action: warp::pane_group::PaneGroupAction::EndResizing
+11:05:36 [INFO] dispatching global action for workspace:save_app
+11:05:36 [INFO] Updating local preference with storage key IsSettingsSyncEnabled and value true to match cloud preference
+11:05:36 [INFO] Updating local preference with storage key NextCommandSuggestionsUpgradeBannerNumTimesShownThisPeriod and value 0 to match cloud preference
+11:05:36 [INFO] Updating local preference with storage key DidShowCodeLaunchModal and value true to match cloud preference
+11:05:36 [INFO] Updating local preference with storage key CrashReportingEnabled and value true to match cloud preference
+11:05:36 [INFO] Updating local preference with storage key ShouldAddAgentModeChip and value false to match cloud preference
+11:05:36 [INFO] Updating local preference with storage key AIRequestQuotaInfoSetting and value {"cycle_history":[{"banner_state":{"dismissed":false},"end_date":"2025-11-23T08:05:24.396928Z","was_quota_exceeded":false}]} to match cloud preference
+11:05:36 [INFO] Updating local preference with storage key TelemetryEnabled and value true to match cloud preference
+11:05:36 [INFO] Updating local preference with storage key InputBoxTypeSetting and value "Universal" to match cloud preference
+11:05:37 [INFO] dispatching action for "root_view:maybe_stop_active_voice_input"
+11:05:39 [INFO] dispatching typed action: warp::workspace::action::WorkspaceAction::AddTab
+11:05:39 [INFO] dispatching typed action: warp::pane_group::PaneGroupAction::HandleFocusChange
+11:05:39 [WARN] Action HandleFocusChange was dispatched, but no view handled it
+11:05:39 [INFO] dispatching global action for workspace:save_app
+11:05:39 [WARN] Tried to update block filter query without active_filter_editor_block_index set
+11:05:39 [INFO] Starting shell /bin/bash
+11:05:39 [INFO] Successfully spawned tty with pid: 55856
+11:05:39 [INFO] Successfully spawned child bash process with pid 55856
+11:05:39 [WARN] Tried to render share modal without a model
+11:05:39 [INFO] Received InitShell hook
+11:05:39 [INFO] Received CommandFinished hook
+11:05:39 [INFO] Tried to exit the alternate screen, but it was already inactive
+11:05:39 [INFO] Block finished with new state DoneWithNoExecution
+11:05:39 [INFO] Incrementing stage from WarpInput to ScriptExecution
+11:05:39 [INFO] dispatching typed action: warp::pane_group::PaneGroupAction::HandleFocusChange
+11:05:39 [INFO] dispatching typed action: warp::pane_group::PaneGroupAction::HandleFocusChange
+11:05:39 [INFO] Received Precmd hook
+11:05:39 [INFO] notifying view observers and updating windows for timer id 1
+11:05:39 [INFO] Received Bootstrapped hook
+11:05:39 [INFO] Configured typeahead mode as ShellReported
+11:05:39 [INFO] creating a local executor!
+11:05:39 [INFO] Parsed shell version string: Some([Number(5), Number(2), Number(21), Number(1), Text("release")])
+11:05:39 [INFO] Shell is bootstrapped with session_id SessionId(176120673918262)
+11:05:39 [INFO] Loading history from file /home/ingineer/.bash_history for shell bash
+11:05:39 [INFO] dispatching global action for workspace:save_app
+11:05:39 [INFO] Received CommandFinished hook
+11:05:39 [INFO] Tried to exit the alternate screen, but it was already inactive
+11:05:39 [INFO] Block finished with new state DoneWithNoExecution
+11:05:39 [INFO] Incrementing stage from Bootstrapped to PostBootstrapPrecmd
+11:05:39 [INFO] dispatching typed action: warp::pane_group::PaneGroupAction::HandleFocusChange
+11:05:39 [INFO] Received Precmd hook
+11:05:39 [INFO] dispatching typed action: warp::pane_group::PaneGroupAction::HandleFocusChange
+11:05:39 [INFO] Received InputBuffer hook
+11:05:39 [INFO] notifying view observers and updating windows for timer id 2
+11:05:44 [INFO] active window changed: None
+11:05:44 [INFO] dispatching global action for root_view:update_quake_mode_state
+11:05:44 [INFO] dispatching global action for workspace:save_app
+11:05:49 [INFO] Start to send telemetry events to RudderStack
+11:05:49 [INFO] Flushed telemetry events.
+
+
+

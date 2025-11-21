@@ -1,0 +1,161 @@
+LD_PRELOAD=yale_fingerprinting_research/identity.so /opt/warpdev/warp-terminal/warp
+bash: /opt/warpdev/warp-terminal/warp: No such file or directory
+ingineer@ingineer:~$ LD_PRELOAD=yale_fingerprinting_research/identity.so /opt/warpdotdev/warp-terminal/warp
+[IDENTITY INTERCEPTOR] Loaded - Profile: HP_CPU_131d
+[IDENTITY INTERCEPTOR] Full system identity spoofing active
+21:07:13 [INFO] Spawning terminal server process...
+[IDENTITY INTERCEPTOR] Loaded - Profile: HP_CPU_131d
+[IDENTITY INTERCEPTOR] Full system identity spoofing active
+[IDENTITY INTERCEPTOR] Loaded - Profile: HP_CPU_131d
+[IDENTITY INTERCEPTOR] Full system identity spoofing active
+21:07:13 [INFO] Running terminal server...
+21:07:13 [WARN] Tried to initialize the wayland data control protocol clipboard, but failed. Falling back to the X11 clipboard protocol. The error was: Unknown error while interacting with the clipboard: A required Wayland protocol (ext-data-control, or wlr-data-control version 1) is not supported by the compositor
+21:07:13 [INFO] Running app with windowing system: X11
+21:07:13 [ERROR] Failed to read API keys from secure storage: item not found
+21:07:13 [WARN] Unable to find extension: VK_EXT_physical_device_drm
+21:07:13 [INFO] Unable to read user from secure storage: SecureStorageError(NotFound)
+21:07:13 [INFO] Connecting to SQLite database
+21:07:14 [WARN] SQLite error 284 (Automatic indexing used - database might benefit from additional indexes): automatic index on object_permissions(subject_type)
+21:07:14 [INFO] Initializing crash reporting Some("linux_stable_release") with tag "v0.2025.10.15.08.12.stable_01"...
+21:07:14 [INFO] Starting warp with channel state ChannelState { channel: Stable, app_id: AppId { qualifier: "dev", organization: "warp", application_name: "Warp" }, additional_features: {}, firebase_api_key: "AIzaSyBdy3O3S9hrdayLJxJ7mriBR4qgUaUygAs", server_root_url: "https://app.warp.dev", ws_server_url: "wss://rtc.app.warp.dev/graphql/v2", session_sharing_server_url: Some("wss://sessions.app.warp.dev"), rudderstack_config: RudderStackConfig { write_key: "2iyG8S1RaV4XTX6SEypetFSEbLK", root_url: "https://warpianwzlfqdq.dataplane.rudderstack.com", ugc_write_key: "2uBazVfcqYBDYSOHnqSVx45GpTV" }, releases_base_url: "https://releases.warp.dev", sentry_url: "https://0195a81da0714f55a93ee4624825f9ec@o540343.ingest.sentry.io/5658526", logfile_name: "warp.log", telemetry_file_name: "warp.telemetry", show_autoupdate_menu_items: true } and version Some("v0.2025.10.15.08.12.stable_01")
+21:07:14 [INFO] Computing available system fonts
+21:07:14 [INFO] Start to send telemetry events to RudderStack
+21:07:14 [INFO] Start to send telemetry events to RudderStack
+21:07:14 [INFO] Initializing app services
+21:07:14 [INFO] Loaded 46 font families
+21:07:14 [INFO] Checking for update on channel stable_release. Update id is QNmFUmk
+21:07:14 [INFO] Fetching channel versions (without changelogs) from Warp server
+21:07:14 [INFO] Initialized execution profile model with state: Unsynced
+21:07:14 [INFO] Loaded onnx classifier
+21:07:14 [INFO] Start to send telemetry events to RudderStack
+21:07:14 [INFO] dispatching global action for root_view:open_from_restored
+21:07:14 [WARN] Failed to retrieve initial request limit info: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out
+21:07:14 [INFO] fetching updated cloud objects
+21:07:14 [INFO] forcing sync of all objects
+21:07:14 [WARN] Detected skylake derivative running on mesa i915. Clears to srgb textures will use manual shader clears.
+21:07:14 [INFO] Enabled wgpu backends: Backends(NOOP | VULKAN | GL | METAL | DX12 | BROWSER_WEBGPU)
+21:07:14 [INFO] Available wgpu adapters (in priority order):
+21:07:14 [INFO] IntegratedGpu: Intel(R) UHD Graphics 630 (CFL GT2)
+	Backend: Vulkan
+	Driver: Intel open-source Mesa driver (Mesa 25.0.7-0ubuntu0.24.04.2)
+	Can present: true
+	Supported texture format: Some(Bgra8UnormSrgb)
+	Supported alpha mode: [PreMultiplied, Inherit]
+21:07:14 [INFO] IntegratedGpu: Mesa Intel(R) UHD Graphics 630 (CFL GT2)
+	Backend: Gl
+	Driver: Unknown (4.6 (Core Profile) Mesa 25.0.7-0ubuntu0.24.04.2)
+	Can present: true
+	Supported texture format: Some(Rgba8UnormSrgb)
+	Supported alpha mode: [Opaque]
+21:07:14 [INFO] Cpu: llvmpipe (LLVM 20.1.2, 256 bits)
+	Backend: Vulkan
+	Driver: llvmpipe (Mesa 25.0.7-0ubuntu0.24.04.2 (LLVM 20.1.2))
+	Can present: true
+	Supported texture format: Some(Bgra8UnormSrgb)
+	Supported alpha mode: [PreMultiplied, Inherit]
+21:07:14 [INFO] Verifying adapter "Intel(R) UHD Graphics 630 (CFL GT2)" is valid...
+21:07:14 [INFO] Using Vulkan IntegratedGpu (Intel(R) UHD Graphics 630 (CFL GT2)) for rendering new window.
+21:07:14 [INFO] get_workspaces_metadata_for_user: request failed with error Error polling for workspace metadata changes: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+21:07:14 [WARN] fetch_changed_objects: request failed with error Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+21:07:14 [INFO] Received channel versions from Warp server: dev: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.23.08.12.dev_00", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2023.05.12.08.03.dev_00"), last_prominent_update: Some("v0.2025.03.05.08.02.dev_00"), is_rollback: None }, overrides: [] }; preview: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.15.08.12.preview_01", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2025.04.30.08.11.preview_03"), last_prominent_update: Some("v0.2025.09.17.08.11.preview_01"), is_rollback: None }, overrides: [] }; canary: ChannelVersion { version_info: VersionInfo { version: "v0.2022.09.29.08.08.canary_00", version_for_new_users: None, update_by: None, soft_cutoff: None, last_prominent_update: None, is_rollback: None }, overrides: [] }; beta: ChannelVersion { version_info: VersionInfo { version: "v0.2024.12.18.08.02.beta_00", version_for_new_users: None, update_by: None, soft_cutoff: None, last_prominent_update: None, is_rollback: None }, overrides: [] }; stable: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.15.08.12.stable_01", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2025.09.01.20.54.stable_06"), last_prominent_update: Some("v0.2025.10.15.08.12.stable_01"), is_rollback: None }, overrides: [] }
+21:07:14 [INFO] window resized
+21:07:14 [INFO] dispatching global action for workspace:save_app
+21:07:14 [INFO] dispatching global action for workspace:save_app
+21:07:14 [INFO] dispatching global action for workspace:save_app
+21:07:14 [INFO] Flushed telemetry events.
+21:07:22 [INFO] Already up to date with v0.2025.10.15.08.12.stable_01
+21:07:22 [INFO] No update available
+21:07:22 [INFO] active window changed: Some(WindowId(0))
+21:07:22 [INFO] dispatching global action for root_view:update_quake_mode_state
+21:07:22 [INFO] dispatching global action for workspace:save_app
+21:07:22 [INFO] fetching updated cloud objects
+21:07:22 [INFO] forcing sync of all objects
+21:07:22 [WARN] The current device is lost. Reason: Unknown. Message: Device is lost
+
+thread 'main' panicked at /home/runner/.cargo/git/checkouts/wgpu-9e49a0104df5c88b/4cdc8f5/wgpu/src/backend/wgpu_core.rs:2170:18:
+Error in Buffer::get_mapped_range: Validation Error
+
+Caused by:
+  Buffer with 'Rect instance buffer' label is invalid
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+ingineer@ingineer:~$ 21:07:22 [INFO] Parent has crashed; continuing execution.
+21:07:22 [INFO] Spawning terminal server process...
+[IDENTITY INTERCEPTOR] Loaded - Profile: HP_CPU_131d
+[IDENTITY INTERCEPTOR] Full system identity spoofing active
+21:07:22 [INFO] Running terminal server...
+21:07:22 [WARN] Tried to initialize the wayland data control protocol clipboard, but failed. Falling back to the X11 clipboard protocol. The error was: Unknown error while interacting with the clipboard: A required Wayland protocol (ext-data-control, or wlr-data-control version 1) is not supported by the compositor
+21:07:22 [INFO] Running app with windowing system: X11
+21:07:22 [WARN] Unable to find extension: VK_EXT_physical_device_drm
+21:07:22 [ERROR] Failed to read API keys from secure storage: item not found
+21:07:22 [INFO] Unable to read user from secure storage: SecureStorageError(NotFound)
+21:07:22 [WARN] SQLite error 283 (A WAL mode database file was recovered): recovered 42 frames from WAL file /home/ingineer/.local/state/warp-terminal/warp.sqlite-wal
+21:07:22 [INFO] Connecting to SQLite database
+21:07:22 [INFO] Initializing crash reporting Some("linux_stable_release") with tag "v0.2025.10.15.08.12.stable_01"...
+[IDENTITY INTERCEPTOR] Loaded - Profile: HP_CPU_131d
+[IDENTITY INTERCEPTOR] Full system identity spoofing active
+21:07:22 [INFO] Starting warp with channel state ChannelState { channel: Stable, app_id: AppId { qualifier: "dev", organization: "warp", application_name: "Warp" }, additional_features: {}, firebase_api_key: "AIzaSyBdy3O3S9hrdayLJxJ7mriBR4qgUaUygAs", server_root_url: "https://app.warp.dev", ws_server_url: "wss://rtc.app.warp.dev/graphql/v2", session_sharing_server_url: Some("wss://sessions.app.warp.dev"), rudderstack_config: RudderStackConfig { write_key: "2iyG8S1RaV4XTX6SEypetFSEbLK", root_url: "https://warpianwzlfqdq.dataplane.rudderstack.com", ugc_write_key: "2uBazVfcqYBDYSOHnqSVx45GpTV" }, releases_base_url: "https://releases.warp.dev", sentry_url: "https://0195a81da0714f55a93ee4624825f9ec@o540343.ingest.sentry.io/5658526", logfile_name: "warp.log", telemetry_file_name: "warp.telemetry", show_autoupdate_menu_items: true } and version Some("v0.2025.10.15.08.12.stable_01")
+21:07:22 [INFO] Start to send telemetry events to RudderStack
+21:07:22 [INFO] Computing available system fonts
+21:07:22 [INFO] Start to send telemetry events to RudderStack
+21:07:22 [INFO] Initializing app services
+21:07:22 [INFO] Checking for update on channel stable_release. Update id is Zf9tyEl
+21:07:22 [INFO] Fetching channel versions (without changelogs) from Warp server
+21:07:22 [INFO] Initialized execution profile model with state: Unsynced
+21:07:23 [INFO] Loaded 46 font families
+21:07:23 [INFO] Loaded onnx classifier
+21:07:23 [INFO] Start to send telemetry events to RudderStack
+21:07:23 [INFO] dispatching global action for root_view:open_from_restored
+21:07:23 [WARN] Failed to retrieve initial request limit info: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out
+21:07:23 [INFO] fetching updated cloud objects
+21:07:23 [INFO] forcing sync of all objects
+21:07:23 [WARN] Detected skylake derivative running on mesa i915. Clears to srgb textures will use manual shader clears.
+21:07:23 [INFO] Enabled wgpu backends: Backends(NOOP | VULKAN | GL | METAL | DX12 | BROWSER_WEBGPU)
+21:07:23 [INFO] Available wgpu adapters (in priority order):
+21:07:23 [INFO] IntegratedGpu: Intel(R) UHD Graphics 630 (CFL GT2)
+	Backend: Vulkan
+	Driver: Intel open-source Mesa driver (Mesa 25.0.7-0ubuntu0.24.04.2)
+	Can present: true
+	Supported texture format: Some(Bgra8UnormSrgb)
+	Supported alpha mode: [PreMultiplied, Inherit]
+21:07:23 [INFO] IntegratedGpu: Mesa Intel(R) UHD Graphics 630 (CFL GT2)
+	Backend: Gl
+	Driver: Unknown (4.6 (Core Profile) Mesa 25.0.7-0ubuntu0.24.04.2)
+	Can present: true
+	Supported texture format: Some(Rgba8UnormSrgb)
+	Supported alpha mode: [Opaque]
+21:07:23 [INFO] Cpu: llvmpipe (LLVM 20.1.2, 256 bits)
+	Backend: Vulkan
+	Driver: llvmpipe (Mesa 25.0.7-0ubuntu0.24.04.2 (LLVM 20.1.2))
+	Can present: true
+	Supported texture format: Some(Bgra8UnormSrgb)
+	Supported alpha mode: [PreMultiplied, Inherit]
+21:07:23 [INFO] Verifying adapter "Intel(R) UHD Graphics 630 (CFL GT2)" is valid...
+21:07:23 [INFO] Using Vulkan IntegratedGpu (Intel(R) UHD Graphics 630 (CFL GT2)) for rendering new window.
+21:07:23 [INFO] get_workspaces_metadata_for_user: request failed with error Error polling for workspace metadata changes: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+21:07:23 [WARN] fetch_changed_objects: request failed with error Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+21:07:23 [INFO] window resized
+21:07:23 [INFO] dispatching global action for workspace:save_app
+21:07:23 [INFO] dispatching global action for workspace:save_app
+21:07:23 [INFO] dispatching global action for workspace:save_app
+21:07:23 [INFO] Received channel versions from Warp server: dev: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.23.08.12.dev_00", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2023.05.12.08.03.dev_00"), last_prominent_update: Some("v0.2025.03.05.08.02.dev_00"), is_rollback: None }, overrides: [] }; preview: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.15.08.12.preview_01", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2025.04.30.08.11.preview_03"), last_prominent_update: Some("v0.2025.09.17.08.11.preview_01"), is_rollback: None }, overrides: [] }; canary: ChannelVersion { version_info: VersionInfo { version: "v0.2022.09.29.08.08.canary_00", version_for_new_users: None, update_by: None, soft_cutoff: None, last_prominent_update: None, is_rollback: None }, overrides: [] }; beta: ChannelVersion { version_info: VersionInfo { version: "v0.2024.12.18.08.02.beta_00", version_for_new_users: None, update_by: None, soft_cutoff: None, last_prominent_update: None, is_rollback: None }, overrides: [] }; stable: ChannelVersion { version_info: VersionInfo { version: "v0.2025.10.15.08.12.stable_01", version_for_new_users: None, update_by: None, soft_cutoff: Some("v0.2025.09.01.20.54.stable_06"), last_prominent_update: Some("v0.2025.10.15.08.12.stable_01"), is_rollback: None }, overrides: [] }
+21:07:23 [INFO] Flushed telemetry events.
+21:07:30 [INFO] active window changed: Some(WindowId(0))
+21:07:30 [INFO] dispatching global action for root_view:update_quake_mode_state
+21:07:30 [INFO] dispatching global action for workspace:save_app
+21:07:30 [INFO] Already up to date with v0.2025.10.15.08.12.stable_01
+21:07:30 [INFO] No update available
+21:07:30 [INFO] fetching updated cloud objects
+21:07:30 [INFO] forcing sync of all objects
+21:07:30 [INFO] get_workspaces_metadata_for_user: request failed with error Error polling for workspace metadata changes: Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+21:07:30 [WARN] fetch_changed_objects: request failed with error Failed to get access token for GraphQL request: Attempted to retrieve access token when user is logged out. Trying again.
+21:07:30 [WARN] The current device is lost. Reason: Unknown. Message: Device is lost
+
+thread 'main' panicked at /home/runner/.cargo/git/checkouts/wgpu-9e49a0104df5c88b/4cdc8f5/wgpu/src/backend/wgpu_core.rs:2170:18:
+Error in Buffer::get_mapped_range: Validation Error
+
+Caused by:
+  Buffer with 'Rect instance buffer' label is invalid
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+

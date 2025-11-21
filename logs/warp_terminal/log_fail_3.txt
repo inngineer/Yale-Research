@@ -1,0 +1,887 @@
+ERROR: ld.so: object './identity.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object './identity.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object './identity.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object './identity.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+                                                                                                                   ERROR: ld.so: object './identity.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+                                                                                                                   ERROR: ld.so: object './identity.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+                                                                                                                   ingineer@ingineer:~$  if [[ $bash_preexec_imported == "defined" || $__bp_imported == "defined" ]]; then
+>  BASH_PREEXEC_IN_ETC_BASHRC=1
+>  fi
+ingineer@ingineer:~$  HISTCONTROL=ignorespace
+ingineer@ingineer:~$  unset HISTIGNORE
+ingineer@ingineer:~$  function define_bashpreexec_functions() {
+>  bash_preexec_imported="defined"
+>  __bp_imported="${bash_preexec_imported}"
+>  __bp_last_ret_value="$?"
+>  BP_PIPESTATUS=("${PIPESTATUS[@]}")
+>  __bp_last_argument_prev_command="$_"
+>  __bp_inside_precmd=0
+>  __bp_inside_preexec=0
+>  __bp_install_string=$'__bp_trap_string="$(trap -p DEBUG)"\ntrap - DEBUG\n__bp_install'
+>  __bp_require_not_readonly() {
+>  local var
+>  for var; do
+>  if ! ( unset "$var" 2> /dev/null ); then
+>  echo "bash-preexec requires write access to ${var}" >&2
+>  return 1
+>  fi
+>  done
+>  }
+>  __bp_adjust_histcontrol() {
+>  local histcontrol
+>  histcontrol="${HISTCONTROL:-}"
+>  histcontrol="${histcontrol//ignorespace}"
+>  if [[ "$histcontrol" == *"ignoreboth"* ]]; then
+>  histcontrol="ignoredups:${histcontrol//ignoreboth}"
+>  fi;
+>  export HISTCONTROL="$histcontrol"
+>  }
+>  __bp_preexec_interactive_mode=""
+>  declare -a precmd_functions
+>  declare -a preexec_functions
+>  __bp_trim_whitespace() {
+>  local var=${1:?} text=${2:-}
+>  text="${text#"${text%%[![:space:]]*}"}"   # remove leading whitespace characters
+>  text="${text%"${text##*[![:space:]]}"}"   # remove trailing whitespace characters
+>  printf -v "$var" '%s' "$text"
+>  }
+>  __bp_sanitize_string() {
+>  local var=${1:?} text=${2:-} sanitized
+>  __bp_trim_whitespace sanitized "$text"
+>  sanitized=${sanitized%;}
+>  sanitized=${sanitized#;}
+>  __bp_trim_whitespace sanitized "$sanitized"
+>  printf -v "$var" '%s' "$sanitized"
+>  }
+>  __bp_interactive_mode() {
+>  __bp_preexec_interactive_mode="on";
+>  }
+>  __bp_precmd_invoke_cmd() {
+>  __bp_last_ret_value="$?" BP_PIPESTATUS=("${PIPESTATUS[@]}")
+>  if (( __bp_inside_precmd > 0 )); then
+>  return
+>  fi
+>  local __bp_inside_precmd=1
+>  local precmd_function
+')>  for precmd_function in "${precmd_functions[@]}"; do
+>  if type -t "$precmd_function" 1>/dev/null; then
+>  __bp_set_ret_value "$__bp_last_ret_value" "$__bp_last_argument_prev_command"
+>  "$precmd_function"
+>  fi
+>  done
+-z>  __bp_set_ret_value "$__bp_last_ret_value"
+>  }
+>  __bp_set_ret_value() {
+>  return ${1:+"$1"}
+>  }
+>  __bp_in_prompt_command() {
+>  local prompt_command_array IFS=$'\n;'
+>  read -rd '' -a prompt_command_array <<< "${PROMPT_COMMAND[*]:-}"
+>  local trimmed_arg
+>  __bp_trim_whitespace trimmed_arg "${1:-}"
+>  local command trimmed_command
+>  for command in "${prompt_command_array[@]:-}"; do
+>  __bp_trim_whitespace trimmed_command "$command"
+>  if [[ "$trimmed_command" == "$trimmed_arg" ]]; then
+>  return 0
+>  fi
+>  done
+>  return 1
+>  }
+>  __bp_preexec_invoke_exec() {
+>  __bp_last_argument_prev_command="${1:-}"
+>  if (( __bp_inside_preexec > 0 )); then
+>  return
+>  fi
+>  local __bp_inside_preexec=1
+>  if [[ ! -t 1 && -z "${__bp_delay_install:-}" ]]; then
+>  return
+>  fi
+>  if [[ -n "${COMP_LINE:-}" ]]; then
+>  return
+>  fi
+>  if [[ -n "${READLINE_LINE+x}" ]]; then
+>  return
+>  fi
+>  if [[ -z "${__bp_preexec_interactive_mode:-}" ]]; then
+>  return
+>  else
+>  if [[ 0 -eq "${BASH_SUBSHELL:-}" ]]; then
+>  __bp_preexec_interactive_mode=""
+>  fi
+>  fi
+>  if  __bp_in_prompt_command "${BASH_COMMAND:-}"; then
+>  __bp_preexec_interactive_mode=""
+>  return
+>  fi
+>  local this_command
+>  this_command=$(
+>  export LC_ALL=C
+>  HISTTIMEFORMAT='' builtin history 1 | sed '1 s/^ *[0-9][0-9]*[* ] //'
+>  )
+>  if [[ -z "$this_command" ]]; then
+>  return
+>  fi
+>  local preexec_function
+>  local preexec_function_ret_value
+>  local preexec_ret_value=0
+>  for preexec_function in "${preexec_functions[@]:-}"; do
+>  if type -t "$preexec_function" 1>/dev/null; then
+>  __bp_set_ret_value "${__bp_last_ret_value:-}"
+>  "$preexec_function" "$this_command"
+>  preexec_function_ret_value="$?"
+>  if [[ "$preexec_function_ret_value" != 0 ]]; then
+>  preexec_ret_value="$preexec_function_ret_value"
+>  fi
+>  fi
+>  done
+>  __bp_set_ret_value "$preexec_ret_value" "$__bp_last_argument_prev_command"
+>  }
+>  __bp_install() {
+_command "$@>  if [[ "${PROMPT_COMMAND[*]:-}" == *"__bp_precmd_invoke_cmd"* ]]; then
+>  return 1;
+>  fi
+>  trap '__bp_preexec_invoke_exec "$_"' DEBUG
+>  local prior_trap
+>  prior_trap=$(sed "s/[^']*'\(.*\)'[^']*/\1/" <<<"${__bp_trap_string:-}")
+>  unset __bp_trap_string
+>  if [[ -n "$prior_trap" ]]; then
+>  eval '__bp_original_debug_trap() {
+>  '"$prior_trap"'
+>  }'
+>  preexec_functions+=(__bp_original_debug_trap)
+>  fi
+>  if [[ -n "${__bp_enable_subshells:-}" ]]; then
+>  set -o functrace > /dev/null 2>&1
+>  shopt -s extdebug > /dev/null 2>&1
+>  fi;
+>  local existing_prompt_command
+>  existing_prompt_command="${PROMPT_COMMAND:-}"
+>  existing_prompt_command="${existing_prompt_command//$__bp_install_string/:}" # no-op
+>  existing_prompt_command="${existing_prompt_command//$'\n':$'\n'/$'\n'}" # remove known-token only
+>  existing_prompt_command="${existing_prompt_command//$'\n':;/$'\n'}" # remove known-token only
+>  __bp_sanitize_string existing_prompt_command "$existing_prompt_command"
+>  if [[ "${existing_prompt_command:-:}" == ":" ]]; then
+>  existing_prompt_command=
+>  fi
+>  PROMPT_COMMAND='__bp_precmd_invoke_cmd'
+>  PROMPT_COMMAND+=${existing_prompt_command:+$'\n'$existing_prompt_command}
+>  if (( BASH_VERSINFO[0] > 5 || (BASH_VERSINFO[0] == 5 && BASH_VERSINFO[1] >= 1) )); then
+>  PROMPT_COMMAND+=('__bp_interactive_mode')
+>  else
+>  PROMPT_COMMAND+=$'\n__bp_interactive_mode'
+>  fi
+>  precmd_functions+=(precmd)
+>  preexec_functions+=(preexec)
+>  __bp_precmd_invoke_cmd
+>  __bp_interactive_mode
+>  }
+>  __bp_install_after_session_init() {
+>  __bp_require_not_readonly PROMPT_COMMAND HISTCONTROL HISTTIMEFORMAT || return
+>  local sanitized_prompt_command
+>  __bp_sanitize_string sanitized_prompt_command "${PROMPT_COMMAND:-}"
+>  if [[ -n "$sanitized_prompt_command" ]]; then
+>  PROMPT_COMMAND=${sanitized_prompt_command}$'\n'
+>  fi;
+>  PROMPT_COMMAND+=${__bp_install_string}
+>  }
+>  }
+ingineer@ingineer:~$  function install_bashpreexec() {
+>  if [[ -z "${__bp_delay_install:-}" ]]; then
+>  __bp_install_after_session_init
+>  fi;
+>  }
+ingineer@ingineer:~$  read -r -d '' WARP_BOOTSTRAP_VAR << 'EOM'
+> if [ -z "$WARP_BOOTSTRAPPED" ]; then
+>  DCS_START="$(printf '\eP$')"
+>  DCS_JSON_MARKER="d"
+>  DCS_END="$(printf '\x9c')"
+>  OSC_START="$(printf '\e]9278;')"
+>  OSC_END="$(printf '\a')"
+>  OSC_PARAM_SEPARATOR=";"
+>  RESET_GRID_OSC="$(printf '\e]9279\a')"
+>  OSC_START_GENERATOR_OUTPUT="$(printf '\e]9277;A\a')"
+>  OSC_END_GENERATOR_OUTPUT="$(printf '\e]9277;B\a')"
+>  if [[ ! -z "$WARP_INITIAL_WORKING_DIR" ]]; then
+>  cd "$WARP_INITIAL_WORKING_DIR" >/dev/null 2>&1
+>  unset WARP_INITIAL_WORKING_DIR
+>  fi
+>  unset HISTCONTROL
+>  define_bashpreexec_functions
+>  warp_send_json_message () {
+>  encoded_message=$(warp_hex_encode_string "$1")
+>  if [ "$WARP_USING_WINDOWS_CON_PTY" = true ]; then
+>  printf $OSC_START$DCS_JSON_MARKER$OSC_PARAM_SEPARATOR$encoded_message$OSC_END
+>  else
+>  printf $DCS_START$DCS_JSON_MARKER$encoded_message$DCS_END
+>  fi
+>  }
+>  warp_maybe_send_reset_grid_osc () {
+>  if [ "$WARP_USING_WINDOWS_CON_PTY" = true ]; then
+$jobspec" 2> /dev/null | command -p tr -s ' ' | command -p cut -d ' ' -f3-)^J if [[ "$fg_command_name" == "" ]]; then^J return^J fi^J cmd="$fg_command_name"^J fi^J warp_title "$cmd"^J }^J warp_git () {^J GIT_OPTIONAL_LOCKS=0 command git "$@"^J }^J warp_precmd () {^J local exit_code=$?^J if [ "$WARP_IN_MSYS2" = true ]; then^J warp_send_hook_via_kv_pairs_start "CommandFinished"^J warp_send_hook_kv_pair "exit_code" "$exit_code"^J warp_send_hook_kv_pair "next_block_id" "precmd-$WARP_SESSION_ID-$((block_id++))"^J warp_send_hook_via_kv_pairs_end^J else^J warp_send_json_message "{\"hook\": \"CommandFinished\", \"value\": {\"exit_code\": $exit_co>  printf $RESET_GRID_OSC
+>  fi
+>  }
+>  warp_send_hook_via_kv_pairs_start () {
+>  printf "${OSC_START}k;A;%s\a" $1
+>  }
+>  warp_send_hook_kv_pair_escaped () {
+>  if [[ -n "$2" ]]; then
+>  printf "${OSC_START}k;B;%s;%q\a" "$1" "$2"
+>  else
+>  printf "${OSC_START}k;B;%s;\a" "$1"
+>  fi
+>  }
+>  warp_send_hook_kv_pair () {
+>  if [[ -n "$2" ]]; then
+>  printf "${OSC_START}k;B;%s;%s\a" "$1" "$2"
+>  else
+>  printf "${OSC_START}k;B;%s;\a" "$1"
+>  fi
+>  }
+>  warp_send_hook_via_kv_pairs_end () {
+>  printf "${OSC_START}k;C\a"
+>  }
+>  warp_send_generator_output_osc () {
+>  local hex_encoded_message=$(warp_hex_encode_string "$1")
+>  warp_send_generator_output_osc_pre_hex_encoded "$hex_encoded_message"
+>  }
+>  warp_send_generator_output_osc_pre_hex_encoded () {
+>  local byte_count=$(LC_ALL="C"; printf "${#1}")
+>  printf "%b%i;%s%b" $OSC_START_GENERATOR_OUTPUT $byte_count $1 $OSC_END_GENERATOR_OUTPUT
+>  warp_maybe_send_reset_grid_osc
+>  }
+>  _warp_execute_command() {
+>  local command_id=$1
+>  local command="${@:2}"
+>  local generator_output="$( {
+>  echo -n "$command_id;";
+>  eval "$command" 2>&1;
+>  echo -n ";$?";
+>  } | command -p od -An -v -tx1 | command -p tr -d ' \n')"
+>  warp_send_generator_output_osc_pre_hex_encoded "$generator_output"
+>  }
+>  _warp_run_generator_command_internal() {
+>  _warp_execute_command "$@" &
+>  local pid=$!
+>  echo $pid >> $_WARP_GENERATOR_PIDS_STARTED_TMP_FILE
+>  wait $pid 2> /dev/null
+>  if [[ $? -ne 0 ]]; then
+>  warp_send_generator_output_osc "$1;;1"
+>  fi
+>  if [[ -f $_WARP_GENERATOR_PIDS_COMPLETED_TMP_FILE ]]; then
+>  echo $pid >> $_WARP_GENERATOR_PIDS_COMPLETED_TMP_FILE
+>  fi
+>  }
+>  warp_run_generator_command() {
+>  _WARP_GENERATOR_COMMAND=1
+>  _USER_PRECMD_FUNCTIONS=(${precmd_functions[@]})
+>  precmd_functions=(warp_precmd)
+>  (_warp_run_generator_command_internal "$@" &)
+>  }
+>  warp_preexec () {
+>  if [ "$WARP_IN_MSYS2" = true ]; then
+>  warp_send_hook_via_kv_pairs_start "Preexec"
+>  warp_send_hook_kv_pair "command" "$BASH_COMMAND"
+>  warp_send_hook_via_kv_pairs_end
+>  else
+>  local truncated_command=$(warp_escape_json "$BASH_COMMAND")
+>  warp_send_json_message "{\"hook\": \"Preexec\", \"value\": {\"command\": \"$truncated_command\"}}"
+>  fi
+>  warp_maybe_send_reset_grid_osc
+>  if [[ "$BASH_COMMAND" != warp_run_generator_command* ]] && [[ -f $_WARP_GENERATOR_PIDS_STARTED_TMP_FILE ]] && [[ -f $_WARP_GENERATOR_PIDS_COMPLETED_TMP_FILE ]]
+>  then
+>  pids=($(command -p comm -23 $_WARP_GENERATOR_PIDS_STARTED_TMP_FILE $_WARP_GENERATOR_PIDS_COMPLETED_TMP_FILE))
+>  if [[ ! -z $pids ]]; then
+>  kill -9 $pids >/dev/null 2>/dev/null
+>  fi
+>  fi
+>  }
+>  warp_title () {
+>  DISABLE_AUTO_TITLE="1"
+>  tmp_len=$((${#1}-25)) # starting character's position
+>  len=$((tmp_len>0 ? tmp_len : 0)) # account for the shorter strings
+>  if [[ $len -ne 0 ]]; then
+>  title="..${1:$len}" # shorten the argument and prepend the leading ".."
+>  else
+>  title="$1"
+>  fi
+r>  printf "\033]0;%s\a" "$title"
+>  }
+>  warp_set_title_idle_on_precmd () {
+>  if [ ! -z "$WARP_DISABLE_AUTO_TITLE" ]; then
+>  return
+>  fi
+>  new_home='~'
+>  bash_term_tab_title="${PWD/#$HOME/$new_home}"
+>  if [[ $WARP_IS_LOCAL_SHELL_SESSION == "1" ]]; then
+>  warp_title "$bash_term_tab_title"
+>  else
+>  bash_term_tab_title_remote="${HOSTNAME%%.*}:$bash_term_tab_title"
+>  warp_title "$bash_term_tab_title_remote"
+>  fi
+>  }
+>  warp_set_title_active_on_preexec () {
+>  if [ ! -z "$WARP_DISABLE_AUTO_TITLE" ]; then
+>  return
+>  fi
+>  cmd="$1"
+>  local this_command_spec
+>  read -r -a this_command_spec <<< "$1"
+>  if [[ "${this_command_spec[0]}" == "fg" ]]; then
+>  jobspec=${this_command_spec[1]}
+>  if [[ "$jobspec" == "" ]]; then
+>  jobspec="%%"
+>  fi
+>  fg_command_name=$(jobs "$jobspec" 2> /dev/null | command -p tr -s ' ' | command -p cut -d ' ' -f3-)
+>  if [[ "$fg_command_name" == "" ]]; then
+>  return
+>  fi
+>  cmd="$fg_command_name"
+>  fi
+>  warp_title "$cmd"
+>  }
+>  warp_git () {
+>  GIT_OPTIONAL_LOCKS=0 command git "$@"
+>  }
+>  warp_precmd () {
+>  local exit_code=$?
+>  if [ "$WARP_IN_MSYS2" = true ]; then
+>  warp_send_hook_via_kv_pairs_start "CommandFinished"
+>  warp_send_hook_kv_pair "exit_code" "$exit_code"
+>  warp_send_hook_kv_pair "next_block_id" "precmd-$WARP_SESSION_ID-$((block_id++))"
+>  warp_send_hook_via_kv_pairs_end
+>  else
+>  warp_send_json_message "{\"hook\": \"CommandFinished\", \"value\": {\"exit_code\": $exit_code, \"next_block_id\": \"precmd-$WARP_SESSION_ID-$((block_id++))\"}}"
+>  fi
+>  warp_maybe_send_reset_grid_osc
+>  if [[ $PS1 == "" ]]; then
+>  WARP_PS1="$SAVED_PS1"
+>  else
+>  WARP_PS1="$PS1"
+>  fi
+>  if [ ! -z  $_WARP_GENERATOR_COMMAND ]; then
+>  precmd_functions=(${_USER_PRECMD_FUNCTIONS[@]})
+>  unset _WARP_GENERATOR_COMMAND
+>  warp_send_json_message "{\"hook\": \"Precmd\", \"value\": {
+>  \"pwd\": \"\",
+>  \"ps1\": \"\",
+>  \"git_branch\": \"\",
+>  \"virtual_env\": \"\",
+>  \"conda_env\": \"\",
+>  \"node_version\": \"\",
+>  \"session_id\": $WARP_SESSION_ID,
+>  \"is_after_in_band_command\": true
+>  }}"
+>  return 0
+>  fi
+>  if [[ -f $_WARP_GENERATOR_PIDS_STARTED_TMP_FILE ]]; then
+>  command -p rm $_WARP_GENERATOR_PIDS_STARTED_TMP_FILE 2>/dev/null
+>  fi
+>  if [[ -f $_WARP_GENERATOR_PIDS_COMPLETED_TMP_FILE ]]; then
+>  command -p rm $_WARP_GENERATOR_PIDS_COMPLETED_TMP_FILE 2>/dev/null
+>  fi
+>  _WARP_GENERATOR_PIDS_STARTED_TMP_FILE=$(command -p mktemp)
+>  _WARP_GENERATOR_PIDS_COMPLETED_TMP_FILE=$(command -p mktemp)
+>  if [[ -z $WARP_INPUT_REPORTING_SUPPORTED ]]; then
+>  WARP_INPUT_REPORTING_SUPPORTED=$(warp_input_reporting_supported)
+>  fi
+>  if [[ -z $WARP_PS1_EXPANSION_SUPPORTED ]]; then
+>  WARP_PS1_EXPANSION_SUPPORTED=$(warp_ps1_expanding_supported)
+>  fi
+>  if [[ $WARP_PS1_EXPANSION_SUPPORTED  == "1" ]]; then
+>  exit_code_hack() {
+>  return $1
+>  }
+>  exit_code_hack $exit_code
+>  deref_ps1=${WARP_PS1@P}
+>  else
+>  deref_ps1=$(echo -e "\n" | PS1="$WARP_PS1" BASH_SILENCE_DEPRECATION_WARNING=1 "$BASH" --norc -i 2>&1 | command -p head -2 | command -p tail -1)
+>  fi
+>  local escaped_ps1
+>  if [ "$WARP_IN_MSYS2" = false ]; then
+>  escaped_ps1=$(warp_escape_ps1 "$(echo "$deref_ps1")")
+>  fi
+>  history -a
+>  bind -r '"\C-p"'
+>  bind "\C-p":kill-whole-line
+>  if [[ $WARP_INPUT_REPORTING_SUPPORTED == "1" ]]; then
+>  bind -r '"\ei"'
+>  bind -x '"\ei":"warp_report_input"'
+>  fi
+>  bind -r '"\ep"'
+>  bind -x '"\ep":"warp_change_prompt_modes_to_ps1"'
+>  bind -r '"\ew"'
+>  bind -x '"\ew":"warp_change_prompt_modes_to_warp_prompt"'
+>  local escaped_pwd
+>  if [ "$WARP_IN_MSYS2" = false ]; then
+>  if [ -n "$WSL_DISTRO_NAME" ]; then
+>  escaped_pwd=$(warp_escape_json "$(pwd -P)")
+>  else
+>  escaped_pwd=$(warp_escape_json "$PWD")
+>  fi
+>  fi
+>  local escaped_virtual_env=""
+>  local escaped_conda_env=""
+>  local escaped_node_version=""
+>  local escaped_git_branch=""
+>  local git_branch=""
+>  if [[ -n "$WARP_BOOTSTRAPPED" ]]; then
+>  if [[ -n "$VIRTUAL_ENV" ]] && [ "$WARP_IN_MSYS2" = false ]; then
+>  escaped_virtual_env=$(warp_escape_json "$VIRTUAL_ENV")
+>  fi
+>  if [[ -n "$CONDA_DEFAULT_ENV" ]] && [ "$WARP_IN_MSYS2" = false ]; then
+>  escaped_conda_env=$(warp_escape_json "$CONDA_DEFAULT_ENV")
+>  fi
+>  if command -v node > /dev/null 2>&1 && [ "$WARP_IN_MSYS2" = false ]; then
+>  local current_dir="$PWD"
+>  local found_package_json=false
+>  local package_json_dir=""
+>  while [[ "$current_dir" != "/" ]]; do
+>  if [[ -f "$current_dir/package.json" ]]; then
+>  found_package_json=true
+>  package_json_dir="$current_dir"
+>  break
+>  fi
+>  current_dir=$(dirname "$current_dir")
+>  done
+>  if [[ "$found_package_json" = true ]]; then
+>  local git_dir="$package_json_dir"
+>  local in_git_repo=false
+>  while [[ "$git_dir" != "/" ]]; do
+>  if [[ -d "$git_dir/.git" ]]; then
+>  in_git_repo=true
+>  break
+>  fi
+>  git_dir=$(dirname "$git_dir")
+>  done
+>  if [[ "$in_git_repo" = true ]]; then
+>  local node_version=$(node --version 2>/dev/null)
+>  if [[ -n "$node_version" ]]; then
+>  escaped_node_version=$(warp_escape_json "$node_version")
+>  fi
+>  fi
+>  fi
+>  fi
+s>  if command -v git >/dev/null 2>&1; then
+>  git_branch=$(warp_git symbolic-ref --short HEAD 2> /dev/null || warp_git rev-parse --short HEAD 2> /dev/null)
+>  fi
+>  if [ "$WARP_IN_MSYS2" = false ]; then
+>  escaped_git_branch=$(warp_escape_json "$git_branch")
+>  fi
+>  fi
+>  local honor_ps1
+>  if [[ "$WARP_HONOR_PS1" == "1" ]]; then
+>  honor_ps1="true"
+>  escaped_ps1=""
+>  deref_ps1=""
+>  else
+>  honor_ps1="false"
+>  fi
+>  if [ "$WARP_IN_MSYS2" = true ]; then
+>  warp_send_hook_via_kv_pairs_start "Precmd"
+>  warp_send_hook_kv_pair "pwd" "$PWD"
+>  warp_send_hook_kv_pair_escaped "ps1" "$deref_ps1"
+>  warp_send_hook_kv_pair "ps1_is_encoded" "false"
+>  warp_send_hook_kv_pair "honor_ps1" "$honor_ps1"
+>  warp_send_hook_kv_pair "git_branch" "$git_branch"
+>  warp_send_hook_kv_pair "virtual_env" "$VIRTUAL_ENV"
+>  warp_send_hook_kv_pair "conda_env" "$CONDA_DEFAULT_ENV"
+>  warp_send_hook_kv_pair "node_version" "$node_version"
+>  warp_send_hook_kv_pair "session_id" "$WARP_SESSION_ID"
+>  warp_send_hook_via_kv_pairs_end
+>  else
+>  local escaped_json="{\"hook\": \"Precmd\", \"value\": {
+>  \"pwd\": \"$escaped_pwd\",
+>  \"ps1\": \"$escaped_ps1\",
+>  \"honor_ps1\": $honor_ps1,
+>  \"ps1_is_encoded\": true,
+>  \"git_branch\": \"$escaped_git_branch\",
+>  \"virtual_env\": \"$escaped_virtual_env\",
+>  \"conda_env\": \"$escaped_conda_env\",
+>  \"node_version\": \"$escaped_node_version\",
+>  \"session_id\": $WARP_SESSION_ID
+>  }}"
+>  warp_send_json_message "$escaped_json"
+>  fi
+>  }
+n>  warp_clear_on_next_block () {
+>  warp_send_json_message '{"hook": "ClearOnNextBlock"}'
+>  }
+>  warp_escape_json () {
+>  command -p sed -E 's/(["\\])/\\\1/g; s/'$'\b''/\\b/g; s/'$'\t''/\\t/g; s/'$'\f''/\\f/g; s/'$'\r''/\\r/g; $!s/$/\\n/' <<<"$*" | command -p tr -d '\n'
+>  }
+>  warp_escape_ps1 () {
+>  command -p tr '\n\n' ' ' <<< "$*" | command -p od -An -v -tx1 | command -p tr -d ' \n'
+>  }
+>  warp_hex_encode_string () {
+>  echo "$1" | command -p od -An -v -tx1 | command -p tr -d ' \n'
+ons >  }
+>  init_shell_hook () {
+>  init_shell="{\"hook\": \"InitShell\", \"value\": {\"shell\": \"$1\"}}"
+>  echo $(warp_hex_encode_string "$init_shell")
+>  }
+>  warp_at_least_bash_version () {
+>  if [[ $(printf '%s\n%s\n' "$BASH_VERSION" "$1" | command -p sort -rVC ; echo $?) -eq 0 ]]; then
+>  echo "1"
+>  else
+>  echo "0"
+>  fi
+>  }
+>  warp_ps1_expanding_supported () {
+>  warp_at_least_bash_version "4.4"
+>  }
+>  warp_input_reporting_supported () {
+>  warp_at_least_bash_version "4.0"
+>  }
+>  warp_report_input () {
+>  if [ "$WARP_IN_MSYS2" = true ]; then
+>  warp_send_hook_via_kv_pairs_start "InputBuffer"
+>  warp_send_hook_kv_pair "buffer" "$READLINE_LINE"
+>  warp_send_hook_via_kv_pairs_end
+>  else
+>  local escaped_input="$(warp_escape_json "$READLINE_LINE")"
+>  warp_send_json_message "{ \"hook\": \"InputBuffer\", \"value\": { \"buffer\": \"$escaped_input\" } }"
+>  fi
+>  READLINE_LINE=""
+>  }
+>  function warp_update_prompt_vars() {
+>  local prompt_prefix=$'\e]133;A\a'
+>  local prompt_suffix=$'\e]133;B\a'
+>  if [[ "$WARP_HONOR_PS1" != "1" ]] && [ "$WARP_USING_WINDOWS_CON_PTY" = true ]; then
+>  local suffix="$prompt_suffix$RESET_GRID_OSC"
+>  else
+>  local suffix="$prompt_suffix"
+>  fi
+>  local prompt_prefix_with_cursor_marker_surrounded="\[$prompt_prefix\]"
+>  local suffix_with_cursor_marker_surrounded="\[$suffix\]"
+>  if [[ "$WARP_HONOR_PS1" != "1" ]]; then
+>  if [[ "$PS1" != "" ]]; then
+>  SAVED_PS1=$PS1
+>  fi
+>  fi
+>  if [[ -n "$PS1" ]]; then
+>  if [[ "$PS1" == *"$prompt_prefix_with_cursor_marker_surrounded"* ]]; then
+>  local preceding_prefix=${PS1%%"$prompt_prefix_with_cursor_marker_surrounded"*}
+>  local following_prefix=${PS1#*"$prompt_prefix_with_cursor_marker_surrounded"}
+>  PS1=$preceding_prefix$following_prefix
+>  fi
+>  if [[ "$PS1" == *"$suffix_with_cursor_marker_surrounded"* ]]; then
+>  local preceding_suffix=${PS1%"$suffix_with_cursor_marker_surrounded"*}
+>  local following_suffix=${PS1##*"$suffix_with_cursor_marker_surrounded"}
+>  PS1=$preceding_suffix$following_suffix
+>  fi
+>  ORIGINAL_PS1=$PS1
+>  PS1="$prompt_prefix$PS1$suffix"
+>  fi
+>  if [[ "$WARP_HONOR_PS1" != "1" ]]; then
+>  PS1=""
+>  else
+>  if [[ "$PS1" != "\["*"\]" ]]; then
+>  PS1="\[$prompt_prefix\]$ORIGINAL_PS1\[$suffix\]"
+>  fi
+>  fi
+>  filtered_precmd_functions=()
+>  for func in "${precmd_functions[@]}"; do
+>  if [[ "$func" != "warp_update_prompt_vars" ]]; then
+>  filtered_precmd_functions+=("$func")
+>  fi
+>  done
+>  precmd_functions=("${filtered_precmd_functions[@]}")
+>  precmd_functions+=("warp_update_prompt_vars")
+>  }
+>  function warp_change_prompt_modes_to_ps1() {
+>  PS1="$SAVED_PS1"
+>  WARP_HONOR_PS1="1"
+>  warp_update_prompt_vars
+>  }
+>  function warp_change_prompt_modes_to_warp_prompt() {
+>  WARP_HONOR_PS1="0"
+>  warp_update_prompt_vars
+>  }
+>  function clear() {
+>  if [ "$WARP_IN_MSYS2" = true ]; then
+>  warp_send_hook_via_kv_pairs_start "Clear"
+>  warp_send_hook_via_kv_pairs_end
+>  else
+>  warp_send_json_message "{\"hook\": \"Clear\", \"value\": {}}"
+>  fi
+>  }
+>  function warp_finish_update {
+>  local update_id="$1"
+>  if [ "$WARP_IN_MSYS2" = true ]; then
+>  warp_send_hook_via_kv_pairs_start "FinishUpdate"
+>  warp_send_hook_kv_pair "update_id" "$update_id"
+>  warp_send_hook_via_kv_pairs_end
+>  else
+>  warp_send_json_message "{ \"hook\": \"FinishUpdate\", \"value\": { \"update_id\": \"$update_id\"} }"
+>  fi
+>  }
+>  function warp_handle_dist_upgrade {
+>  local source_file_name="$1"
+>  eval "$(command apt-config shell APT_SOURCESDIR 'Dir::Etc::sourceparts/d')"
+>  if [[ ! -e $APT_SOURCESDIR$source_file_name.list && \
+>  ! -e $APT_SOURCESDIR$source_file_name.sources && \
+>  -e $APT_SOURCESDIR$source_file_name.list.distUpgrade ]]; then
+>  sudo cp "$APT_SOURCESDIR$source_file_name.list.distUpgrade" "$APT_SOURCESDIR$source_file_name.list"
+>  fi
+>  }
+>  if [[ $WARP_IS_LOCAL_SHELL_SESSION == "1" ]]; then
+>  function is_interactive_ssh_session() {
+>  ARGS=()    # this array holds any positional arguments
+>  while [ $# -gt 0 ]; do
+>  OPTIND=1
+>  while getopts :1246AaCfgKkMNnqsTtVvXxYyb:c:D:e:F:i:L:l:m:O:o:p:R:S:W:w: OPTION; do
+>  case $OPTION in
+>  T) return 1;;
+>  W) return 1;;
+>  \?) return 1;;
+>  :) return 1;;
+>  esac
+>  done
+>  [ $? -eq 0 ] || return 2       # getopts failed
+>  [ $OPTIND -gt $# ] && break    # we reached the end of the parameters
+>  shift "$((OPTIND - 1))"  # skip all options processed so far
+>  ARGS[${#ARGS[@]}]=$1     # save first non-option argument (a.k.a. positional argument)
+>  shift                    # remove saved arg
+>  done
+>  if [[ ${#ARGS[@]} -ne 1 ]]; then
+>  return 1
+>  fi
+>  }
+>  function warp_ssh_helper() {
+>  init_shell_bash=$(init_shell_hook "bash")
+>  init_shell_zsh=$(init_shell_hook "zsh")
+>  local zsh_env_script=$(printf '%s' 'unsetopt ZLE; unset RCS; unset GLOBAL_RCS; WARP_SESSION_ID="$(command -p date +%s)$RANDOM"; WARP_USING_WINDOWS_CON_PTY=false; WARP_HONOR_PS1='$WARP_HONOR_PS1'; _hostname=$(command -pv hostname >/dev/null 2>&1 && command -p hostname 2>/dev/null || command -p uname -n); _user=$(command -pv whoami >/dev/null 2>&1 && command -p whoami 2>/dev/null || echo $USER); _msg=$(printf "{\"hook\": \"InitShell\", \"value\": {\"session_id\": $WARP_SESSION_ID, \"shell\": \"zsh\", \"user\": \"%s\", \"hostname\": \"%s\"}}" "$_user" "$_hostname" | command -p od -An -v -tx1 | command -p tr -d '"'"' \n'"'"'); printf '"'"'\e]9278;d;%s\x07'"'"' $_msg; unset _hostname _user _msg' | command -p od -An -v -tx1 | command -p tr -d ' \n')
+>  command ssh -o ControlMaster=yes -o ControlPath=$SSH_SOCKET_DIR/$WARP_SESSION_ID \
+>  -t "${@:1}" \
+> "
+> export TERM_PROGRAM='WarpTerminal'
+> hook="'$(printf "{\"hook\": \"SSH\", \"value\": {\"socket_path\": \"'$SSH_SOCKET_DIR/$WARP_SESSION_ID'\", \"remote_shell\": \"%s\"}}" "${SHELL##*/}" | command -p od -An -v -tx1 | command -p tr -d " \n")'"
+> printf '$OSC_START$DCS_JSON_MARKER$OSC_PARAM_SEPARATOR%s$OSC_END' "'$hook'"
+> if test "'"${SHELL##*/}" != "bash" -a "${SHELL##*/}" != "zsh"'"; then
+>  if test ! -e "'$HOME/.hushlogin'"; then
+>  if test -r /etc/motd; then
+>  command -p cat /etc/motd
+>  elif test -r /run/motd; then
+>  command -p cat /run/motd
+>  elif test -r /run/motd.dynamic; then
+>  command -p cat /run/motd.dynamic
+>  elif test -r /usr/lib/motd; then
+>  command -p cat /usr/lib/motd
+>  elif test -r /usr/lib/motd.dynamic; then
+>  command -p cat /usr/lib/motd.dynamic
+>  fi
+>  fi
+>  if test -r /etc/profile; then
+>  . /etc/profile
+>  fi
+>  exec "'$SHELL'"
+> fi
+> case "'${SHELL##*/}'" in
+>  bash)
+>  exec -a bash bash --rcfile <(echo '"'
+>  command -p stty raw
+>  HISTCONTROL=ignorespace
+>  HISTIGNORE=" *"
+>  WARP_SESSION_ID="$(command -p date +%s)$RANDOM"
+>  WARP_HONOR_PS1="'$WARP_HONOR_PS1'"
+>  _hostname=$(command -pv hostname >/dev/null 2>&1 && command -p hostname 2>/dev/null || command -p uname -n)
+>  _user=$(command -v whoami >/dev/null 2>&1 && command whoami 2>/dev/null || echo $USER)
+>  _msg=$(printf "{\"hook\": \"InitShell\", \"value\": {\"session_id\": $WARP_SESSION_ID, \"shell\": \"bash\", \"user\": \"%s\", \"hostname\": \"%s\"}}" "$_user" "$_hostname" | command -p od -An -v -tx1 | command -p tr -d " \n")'"
+>  WARP_USING_WINDOWS_CON_PTY=false
+>  if [[ "'$OS'" == Windows_NT ]]; then WARP_IN_MSYS2=true; else WARP_IN_MSYS2=false; fi
+>  printf '\''"'\e]9278;d;%s\x07'"'\'' \""'$_msg'"\"')
+>  unset _hostname _user _msg
+>  ;;
+>  zsh) WARP_TMP_DIR="'$(command -p mktemp -d warptmp.XXXXXX)'"
+> local ZSH_ENV_SCRIPT='$zsh_env_script'
+> if [[ "'$?'" == 0 ]]; then
+>  if command -pv xxd >/dev/null 2>&1; then
+>  echo "'$ZSH_ENV_SCRIPT'" | command -p xxd -p -r > "'$WARP_TMP_DIR'"/.zshenv
+>  else
+>  for i in {0..\$((\${#ZSH_ENV_SCRIPT} - 1))..2}; do
+>  builtin printf "'"\x${ZSH_ENV_SCRIPT:$i:2}"'"
+>  done > "'$WARP_TMP_DIR'"/.zshenv
+>  fi
+> else
+>  echo \"Failed to bootstrap warp. Continuing with a non-bootstrapped shell.\"
+> fi
+> TMPPREFIX="'$HOME/.zshtmp-'" WARP_SSH_RCFILES="'${ZDOTDIR:-$HOME}'" ZDOTDIR="'$WARP_TMP_DIR'" exec -l zsh -g $TRACE_FLAG_IF_WARP_SHELL_DEBUG_MODE
+>  ;;
+> esac
+> "
+>  }
+>  function ssh() {
+>  if is_interactive_ssh_session "$@"; then
+>  warp_send_json_message "{\"hook\": \"PreInteractiveSSHSession\", \"value\": {}}"
+>  if [ "$WARP_USE_SSH_WRAPPER" = "1" ]; then
+>  local TRACE_FLAG_IF_WARP_SHELL_DEBUG_MODE=""
+>  if [[ "$WARP_SHELL_DEBUG_MODE" == "1" ]]; then
+>  TRACE_FLAG_IF_WARP_SHELL_DEBUG_MODE="-x"
+>  fi
+>  warp_ssh_helper "$@"
+>  else
+>  command ssh "$@"
+>  fi
+>  else
+>  command ssh "$@"
+>  fi
+>  }
+>  fi
+>  warp_precmd
+>  if [[ ! -e "$HOME/.hushlogin" ]]; then
+>  for motd_file in /etc/motd /run/motd /run/motd.dynamic /usr/lib/motd /usr/lib/motd.dynamic; do
+>  if [[ -r "$motd_file" ]]; then
+>  command -p cat "$motd_file"
+>  break
+>  fi
+>  done
+>  fi
+>  if [[ -z $WARP_IS_SUBSHELL ]]; then
+>  rcfiles_start_time="$(LC_ALL="C"; echo $EPOCHREALTIME)"
+>  if [[ -e /etc/profile ]]; then
+>  source /etc/profile;
+>  elif [[ -e /etc/bash.bashrc ]]; then
+>  source /etc/bash.bashrc
+>  fi
+>  if [[ -e $HOME/.bash_profile ]]; then
+>  source $HOME/.bash_profile
+>  elif [[ -e $HOME/.bash_login ]]; then
+>  source $HOME/.bash_login
+>  elif [[ -e $HOME/.profile ]]; then
+>  source $HOME/.profile
+>  fi
+>  rcfiles_end_time="$(LC_ALL="C"; echo $EPOCHREALTIME)"
+>  fi
+>  if [[ $HISTFILESIZE == $WARP_INITIAL_HISTFILESIZE ]]; then
+>  unset HISTFILESIZE
+>  fi
+>  unset WARP_INITIAL_HISTFILESIZE
+>  USER_HISTCONTROL="$HISTCONTROL"
+>  if [[ ! -z $HISTIGNORE ]]; then
+>  HISTIGNORE="*warp_run_generator_command*:$HISTIGNORE"
+>  else
+>  HISTIGNORE="*warp_run_generator_command*"
+>  fi
+>  if [[ -n $PROMPT_COMMAND && -z $BASH_PREEXEC_IN_ETC_BASHRC ]]; then
+>  if [[ ! $PROMPT_COMMAND =~ "PROMPT_COMMAND=" ]]; then
+>  USER_PROMPT_COMMAND=("${PROMPT_COMMAND[@]}")
+>  function user_prompt_command() {
+>  for command in "${USER_PROMPT_COMMAND[@]}"; do
+>  eval $command
+>  done
+>  }
+>  fi
+>  unset PROMPT_COMMAND
+>  fi
+>  if [[ -n $PROMPT_COMMAND && "$(declare -p PROMPT_COMMAND)" =~ "declare -a" ]]; then
+>  PROMPT_COMMAND_FLATTENED=$(IFS=$'\n'; echo "${PROMPT_COMMAND[*]}")
+>  unset PROMPT_COMMAND
+>  PROMPT_COMMAND=$PROMPT_COMMAND_FLATTENED
+>  fi
+>  if [[ "${PROMPT_COMMAND:-}" != *"__bp_precmd_invoke_cmd"* ]]; then
+>  install_bashpreexec
+>  else
+>  __bp_adjust_histcontrol
+>  fi
+>  vi_mode_enabled=0
+>  IFS=':' read -ra SHELLOPT <<< "$SHELLOPTS"
+>  for i in "${SHELLOPT[@]}"; do
+>  if [[ "$i" == "vi" ]]; then
+>  vi_mode_enabled=1
+>  fi
+>  done
+>  if kernel_name="$(uname)"; then
+>  if [[ "$kernel_name" == "Darwin" ]]; then
+>  os_category="MacOS"
+>  elif [[ "$kernel_name" == "Linux" ]]; then
+>  os_category="Linux"
+>  default_os_release_filepath="/etc/os-release"
+>  fallback_os_release_filepath="/usr/lib/os-release"
+>  if test -f "$default_os_release_filepath"; then
+>  os_release_file="$default_os_release_filepath"
+>  elif test -f "$fallback_os_release_filepath"; then
+>  os_release_file="$fallback_os_release_filepath"
+>  fi
+>  if test -f "$os_release_file"; then
+>  linux_distribution="$(cat $os_release_file | sed -nE 's/^NAME="(.*)"$/\1/p')"
+>  fi
+>  fi
+>  fi
+>  precmd_functions+=(warp_precmd)
+>  preexec_functions+=(warp_preexec)
+>  precmd_functions+=(warp_set_title_idle_on_precmd)
+>  preexec_functions+=(warp_set_title_active_on_preexec)
+>  if declare -f user_prompt_command 2>&1 >/dev/null; then
+>  precmd_functions+=(user_prompt_command)
+>  fi
+>  WARP_BOOTSTRAPPED=1
+>  warp_update_prompt_vars
+>  shopt -s histappend
+>  shell_plugins=()
+>  function warp_bootstrapped () {
+>  local aliases="`alias`"
+>  local env_var_names="`compgen -e`"
+>  local function_names="`compgen -A function`"
+>  local builtins="`compgen -b`"
+>  local keywords="`compgen -k`"
+>  if [ "$WARP_IN_MSYS2" = false ]; then
+>  local escaped_histfile="$(warp_escape_json "$HISTFILE")"
+>  local escaped_abbrs=""
+>  local escaped_aliases="$(warp_escape_json "$aliases")"
+>  local escaped_env_var_names="$(warp_escape_json "$env_var_names")"
+>  local escaped_function_names="$(warp_escape_json "$function_names")"
+>  local escaped_builtins="$(warp_escape_json "$builtins")"
+>  local escaped_keywords="$(warp_escape_json "$keywords")"
+>  fi
+>  local shell_options="`shopt -s | command -p cut -f 1`"
+>  if [[ -n $USER_HISTCONTROL ]]; then
+>  shell_options="$shell_options \n !histcontrol_$USER_HISTCONTROL"
+>  fi
+>  if [ "$STARSHIP_SHELL" = "bash" ]; then
+>  shell_plugins+=("starship")
+>  fi
+>  if [ "$WARP_IN_MSYS2" = false ]; then
+>  local escaped_shell_plugins=$(warp_escape_json "$shell_plugins")
+>  local escaped_path="$(warp_escape_json "$PATH")"
+>  local escaped_shell_options=$(warp_escape_json "$shell_options")
+>  fi
+>  local _user=$(command -pv whoami >/dev/null 2>&1 && command -p whoami 2>/dev/null || echo $USER)
+>  local _hostname=$(command -pv hostname >/dev/null 2>&1 && command -p hostname 2>/dev/null || command -p uname -n)
+>  if [ "$WARP_IN_MSYS2" = true ]; then
+>  warp_send_hook_via_kv_pairs_start "Bootstrapped"
+>  warp_send_hook_kv_pair "histfile" "$HISTFILE"
+>  warp_send_hook_kv_pair "session_id" "$WARP_SESSION_ID"
+>  warp_send_hook_kv_pair "shell" "bash"
+>  warp_send_hook_kv_pair "home_dir" "$HOME"
+>  warp_send_hook_kv_pair "user" "$_user"
+>  warp_send_hook_kv_pair "hostname" "$_hostname"
+>  warp_send_hook_kv_pair "path" "$PATH"
+>  warp_send_hook_kv_pair_escaped "env_var_names" "$env_var_names"
+>  warp_send_hook_kv_pair "abbreviations" ""
+>  warp_send_hook_kv_pair_escaped "aliases" "$aliases"
+>  warp_send_hook_kv_pair_escaped "function_names" "$function_names"
+>  warp_send_hook_kv_pair_escaped "builtins" "$builtins"
+>  warp_send_hook_kv_pair_escaped "keywords" "$keywords"
+>  warp_send_hook_kv_pair "shell_plugins" "$shell_plugins"
+>  warp_send_hook_kv_pair "shell_version" "$BASH_VERSION"
+>  warp_send_hook_kv_pair "shell_options" "$shell_options"
+>  warp_send_hook_kv_pair "rcfiles_start_time" "$rcfiles_start_time"
+>  warp_send_hook_kv_pair "rcfiles_end_time" "$rcfiles_end_time"
+>  warp_send_hook_kv_pair "vi_mode_enabled" "$vi_mode_enabled"
+>  warp_send_hook_kv_pair "os_category" "$os_category"
+>  warp_send_hook_kv_pair "linux_distribution" "$linux_distribution"
+>  warp_send_hook_kv_pair "wsl_name" "$WSL_DISTRO_NAME"
+>  warp_send_hook_via_kv_pairs_end
+>  else
+>  local escaped_editor="$(warp_escape_json "$EDITOR")"
+>  local escaped_json="{\"hook\": \"Bootstrapped\", \"value\": {\"histfile\": \"$escaped_histfile\", \"session_id\": $WARP_SESSION_ID, \"shell\": \"bash\",  \"home_dir\": \"$HOME\", \"user\":\"$_user\", \"host\":\"$_hostname\", \"path\": \"$escaped_path\", \"editor\": \"$escaped_editor\", \"env_var_names\": \"$escaped_env_var_names\", \"abbreviations\": \"$escaped_abbrs\", \"aliases\": \"$escaped_aliases\", \"function_names\": \"$escaped_function_names\", \"builtins\": \"$escaped_builtins\", \"keywords\": \"$escaped_keywords\", \"shell_version\": \"$BASH_VERSION\", \"shell_options\": \"$escaped_shell_options\", \"rcfiles_start_time\": \"$rcfiles_start_time\", \"rcfiles_end_time\": \"$rcfiles_end_time\", \"vi_mode_enabled\": \"$vi_mode_enabled\", \"os_category\": \"$os_category\", \"linux_distribution\": \"$linux_distribution\", \"wsl_name\": \"$WSL_DISTRO_NAME\"}}"
+>  warp_send_json_message "$escaped_json"
+>  fi
+>  }
+>  warp_bootstrapped
+> fi
+> EOM
+ingineer@ingineer:~$  stty sane
+ERROR: ld.so: object './identity.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+                                                                                                                   ingineer@ingineer:~$  eval "$WARP_BOOTSTRAP_VAR"; unset WARP_BOOTSTRAP_VAR

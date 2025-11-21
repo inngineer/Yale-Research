@@ -1,0 +1,101 @@
+{
+  "version": "2.0",
+  "identity_profile": "ZenBook_CPU_b049",
+  "hostname": "zenbook-i7-12700h-bc91",
+  "_id_suffix": "ff",
+  "hardware": {
+    "machine_id": "75cd8058713a1b08bd72408e5f6332f6",
+    "product_uuid": "b40d68c5-f668-287f-37af-62112023fd73",
+    "product_serial": "SN-ZENB2213F9",
+    "board_serial": "MB-C8AE85",
+    "chassis_serial": "CH-FBCCD3",
+    "product_name": "ZenBook UX425EA",
+    "board_name": "UX425EA",
+    "board_vendor": "ASUSTeK COMPUTER INC.",
+    "bios_vendor": "American Megatrends Inc.",
+    "bios_version": "UX425EA.304",
+    "bios_date": "03/23/2022"
+  },
+  "cpu": {
+    "model": "Intel(R) Core(TM) i7-12700H CPU @ 2.30GHz",
+    "cores": 14,
+    "threads": 20,
+    "vendor_id": "GenuineIntel",
+    "mhz": "2300.000",
+    "cache_size": "24576 KB"
+  },
+  "network": {
+    "interfaces": {
+      "eth0": "b8:86:87",
+      "wlan0": "b8:86:87"
+    }
+  },
+  "storage": {
+    "sda_serial": "S6PNNG0R66566D",
+    "nvme_serial": "S6PNNG0RFE8849",
+    "sda_model": "Samsung SSD 870 EVO 1TB",
+    "nvme_model": "Samsung SSD 870 EVO 1TB"
+  },
+  "os": {
+    "name": "Ubuntu",
+    "version": "23.10",
+    "kernel_release": "6.5.0-14-generic",
+    "kernel_version": "#14-Ubuntu SMP PREEMPT_DYNAMIC Tue Nov 14 14:59:49 UTC 2023"
+  },
+  "gpu": {
+    "nvidia_vendor": "0x10de",
+    "nvidia_device": "0x21c4",
+    "intel_vendor": "0x8086",
+    "intel_device": "0x3e9b"
+  },
+  "boot": {
+    "boot_id": "00288332-ead3-4a8b-a288-6a9da9a0cb22",
+    "random_uuid": "d03e45e1-6ed3-c441-c5f8-4b6abc97cf79"
+  },
+  "environment": {
+    "locale": "en_GB.UTF-8",
+    "language": "en_GB:en",
+    "timezone": "Asia/Shanghai",
+    "display": ":0"
+  },
+  "battery": {
+    "has_battery": true,
+    "manufacturer": "LGC",
+    "model": "5B10W13931",
+    "technology": "Li-poly",
+    "capacity_wh": 57,
+    "voltage_v": 15.36,
+    "cells": 4
+  },
+  "memory": {
+    "size_gb": 32,
+    "size_kb": 32768000,
+    "speed_mhz": 5600,
+    "type": "DDR5",
+    "manufacturer": "Corsair",
+    "model": "Dominator Platinum"
+  },
+  "display": {
+    "name": "eDP-1",
+    "resolution": "2880x1800",
+    "width": 2880,
+    "height": 1800,
+    "refresh_rate": 90,
+    "manufacturer": "Samsung",
+    "model": "ATNA40YK01",
+    "diagonal_inches": 14.0,
+    "panel_type": "OLED"
+  },
+  "_metadata": {
+    "generated_by": "formulate_identity.py",
+    "strategy": "moderate",
+    "components_used": {
+      "cpu": "cpu_intel_i7_12700h",
+      "gpu": "gpu_nvidia_gtx1660super",
+      "motherboard": "mb_asus_zenbook_14",
+      "network": "net_qualcomm_atheros",
+      "storage": "ssd_samsung_870evo",
+      "os": "os_ubuntu_2310"
+    }
+  }
+}

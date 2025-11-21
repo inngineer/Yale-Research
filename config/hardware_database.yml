@@ -1,0 +1,1623 @@
+# Hardware Component Database for Identity Formulation
+# Research-grade realistic hardware combinations
+# Each component is based on real hardware specifications
+
+version: "1.0"
+last_updated: "2025-10-23"
+
+# ============================================================================
+# CPU DATABASE - Real processor models
+# ============================================================================
+cpus:
+  - id: cpu_intel_i7_8750h
+    vendor_id: GenuineIntel
+    model: "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz"
+    cores: 6
+    threads: 12
+    mhz: "2208.000"
+    cache_size: "9216 KB"
+    family: "6"
+    model_id: "158"
+    stepping: "10"
+    category: laptop_high_performance
+    
+  - id: cpu_intel_i5_10400
+    vendor_id: GenuineIntel
+    model: "Intel(R) Core(TM) i5-10400 CPU @ 2.90GHz"
+    cores: 6
+    threads: 12
+    mhz: "2900.000"
+    cache_size: "12288 KB"
+    family: "6"
+    model_id: "165"
+    stepping: "5"
+    category: desktop_mainstream
+    
+  - id: cpu_amd_ryzen_5950x
+    vendor_id: AuthenticAMD
+    model: "AMD Ryzen 9 5950X 16-Core Processor"
+    cores: 16
+    threads: 32
+    mhz: "3400.000"
+    cache_size: "65536 KB"
+    family: "25"
+    model_id: "33"
+    stepping: "0"
+    category: desktop_high_end
+    
+  - id: cpu_amd_ryzen_3600
+    vendor_id: AuthenticAMD
+    model: "AMD Ryzen 5 3600 6-Core Processor"
+    cores: 6
+    threads: 12
+    mhz: "3600.000"
+    cache_size: "32768 KB"
+    family: "23"
+    model_id: "113"
+    stepping: "0"
+    category: desktop_mainstream
+    
+  - id: cpu_intel_i7_11700k
+    vendor_id: GenuineIntel
+    model: "Intel(R) Core(TM) i7-11700K CPU @ 3.60GHz"
+    cores: 8
+    threads: 16
+    mhz: "3600.000"
+    cache_size: "16384 KB"
+    family: "6"
+    model_id: "167"
+    stepping: "1"
+    category: desktop_high_performance
+
+  - id: cpu_intel_i9_13900k
+    vendor_id: GenuineIntel
+    model: "Intel(R) Core(TM) i9-13900K CPU @ 3.00GHz"
+    cores: 24
+    threads: 32
+    mhz: "3000.000"
+    cache_size: "36864 KB"
+    family: "6"
+    model_id: "183"
+    stepping: "2"
+    category: desktop_high_end
+
+  - id: cpu_intel_i3_10100
+    vendor_id: GenuineIntel
+    model: "Intel(R) Core(TM) i3-10100 CPU @ 3.60GHz"
+    cores: 4
+    threads: 8
+    mhz: "3600.000"
+    cache_size: "6144 KB"
+    family: "6"
+    model_id: "165"
+    stepping: "5"
+    category: desktop_budget
+
+  - id: cpu_intel_i5_1135g7
+    vendor_id: GenuineIntel
+    model: "Intel(R) Core(TM) i5-1135G7 CPU @ 2.40GHz"
+    cores: 4
+    threads: 8
+    mhz: "2400.000"
+    cache_size: "8192 KB"
+    family: "6"
+    model_id: "140"
+    stepping: "1"
+    category: laptop_mainstream
+
+  - id: cpu_intel_i7_12700h
+    vendor_id: GenuineIntel
+    model: "Intel(R) Core(TM) i7-12700H CPU @ 2.30GHz"
+    cores: 14
+    threads: 20
+    mhz: "2300.000"
+    cache_size: "24576 KB"
+    family: "6"
+    model_id: "154"
+    stepping: "3"
+    category: laptop_high_performance
+
+  - id: cpu_amd_ryzen_7700x
+    vendor_id: AuthenticAMD
+    model: "AMD Ryzen 7 7700X 8-Core Processor"
+    cores: 8
+    threads: 16
+    mhz: "4500.000"
+    cache_size: "40960 KB"
+    family: "25"
+    model_id: "97"
+    stepping: "2"
+    category: desktop_high_performance
+
+  - id: cpu_amd_ryzen_5600g
+    vendor_id: AuthenticAMD
+    model: "AMD Ryzen 5 5600G with Radeon Graphics"
+    cores: 6
+    threads: 12
+    mhz: "3900.000"
+    cache_size: "19456 KB"
+    family: "25"
+    model_id: "80"
+    stepping: "0"
+    category: desktop_mainstream
+
+  - id: cpu_amd_ryzen_7_5800h
+    vendor_id: AuthenticAMD
+    model: "AMD Ryzen 7 5800H with Radeon Graphics"
+    cores: 8
+    threads: 16
+    mhz: "3200.000"
+    cache_size: "16384 KB"
+    family: "25"
+    model_id: "80"
+    stepping: "0"
+    category: laptop_high_performance
+
+  - id: cpu_amd_ryzen_5_4500u
+    vendor_id: AuthenticAMD
+    model: "AMD Ryzen 5 4500U with Radeon Graphics"
+    cores: 6
+    threads: 6
+    mhz: "2375.000"
+    cache_size: "8192 KB"
+    family: "23"
+    model_id: "96"
+    stepping: "1"
+    category: laptop_budget
+
+  - id: cpu_amd_ryzen_3_3200g
+    vendor_id: AuthenticAMD
+    model: "AMD Ryzen 3 3200G with Radeon Vega Graphics"
+    cores: 4
+    threads: 4
+    mhz: "3600.000"
+    cache_size: "4096 KB"
+    family: "23"
+    model_id: "24"
+    stepping: "1"
+    category: desktop_budget
+
+  - id: cpu_intel_xeon_e5_2680v4
+    vendor_id: GenuineIntel
+    model: "Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz"
+    cores: 14
+    threads: 28
+    mhz: "2400.000"
+    cache_size: "35840 KB"
+    family: "6"
+    model_id: "79"
+    stepping: "1"
+    category: server_workstation
+
+  - id: cpu_amd_threadripper_3970x
+    vendor_id: AuthenticAMD
+    model: "AMD Ryzen Threadripper 3970X 32-Core Processor"
+    cores: 32
+    threads: 64
+    mhz: "3700.000"
+    cache_size: "131072 KB"
+    family: "23"
+    model_id: "49"
+    stepping: "0"
+    category: workstation_high_end
+
+  - id: cpu_intel_i5_7200u
+    vendor_id: GenuineIntel
+    model: "Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz"
+    cores: 2
+    threads: 4
+    mhz: "2500.000"
+    cache_size: "3072 KB"
+    family: "6"
+    model_id: "142"
+    stepping: "9"
+    category: laptop_budget
+
+# ============================================================================
+# GPU DATABASE - Real graphics cards
+# ============================================================================
+gpus:
+  - id: gpu_nvidia_gtx1050ti
+    type: nvidia
+    vendor: "0x10de"
+    device: "0x1c8d"
+    name: "NVIDIA GeForce GTX 1050 Ti"
+    subsystem_vendor: "0x1028"
+    subsystem_device: "0x087d"
+    vram_mb: 4096
+    category: budget_gaming
+    
+  - id: gpu_nvidia_rtx3090
+    type: nvidia
+    vendor: "0x10de"
+    device: "0x2204"
+    name: "NVIDIA GeForce RTX 3090"
+    subsystem_vendor: "0x10de"
+    subsystem_device: "0x147d"
+    vram_mb: 24576
+    category: high_end_gaming
+    
+  - id: gpu_nvidia_rtx3060
+    type: nvidia
+    vendor: "0x10de"
+    device: "0x2503"
+    name: "NVIDIA GeForce RTX 3060"
+    subsystem_vendor: "0x1458"
+    subsystem_device: "0x4025"
+    vram_mb: 12288
+    category: mainstream_gaming
+    
+  - id: gpu_intel_uhd630
+    type: intel
+    vendor: "0x8086"
+    device: "0x3e9b"
+    name: "Intel UHD Graphics 630"
+    subsystem_vendor: "0x1028"
+    subsystem_device: "0x087d"
+    vram_mb: 1024
+    category: integrated
+    
+  - id: gpu_amd_rx6800xt
+    type: amd
+    vendor: "0x1002"
+    device: "0x73bf"
+    name: "AMD Radeon RX 6800 XT"
+    subsystem_vendor: "0x1043"
+    subsystem_device: "0x04f2"
+    vram_mb: 16384
+    category: high_end_gaming
+    
+  - id: gpu_intel_iris_xe
+    type: intel
+    vendor: "0x8086"
+    device: "0x9a49"
+    name: "Intel Iris Xe Graphics"
+    subsystem_vendor: "0x8086"
+    subsystem_device: "0x3004"
+    vram_mb: 0
+    category: integrated
+
+  - id: gpu_nvidia_rtx4090
+    type: nvidia
+    vendor: "0x10de"
+    device: "0x2684"
+    name: "NVIDIA GeForce RTX 4090"
+    subsystem_vendor: "0x1043"
+    subsystem_device: "0x8878"
+    vram_mb: 24576
+    category: enthusiast_tier
+
+  - id: gpu_nvidia_rtx3070ti
+    type: nvidia
+    vendor: "0x10de"
+    device: "0x2482"
+    name: "NVIDIA GeForce RTX 3070 Ti"
+    subsystem_vendor: "0x19da"
+    subsystem_device: "0x2508"
+    vram_mb: 8192
+    category: high_end_gaming
+
+  - id: gpu_nvidia_rtx2060
+    type: nvidia
+    vendor: "0x10de"
+    device: "0x1f15"
+    name: "NVIDIA GeForce RTX 2060"
+    subsystem_vendor: "0x1462"
+    subsystem_device: "0x3750"
+    vram_mb: 6144
+    category: mainstream_gaming
+
+  - id: gpu_nvidia_gtx1660super
+    type: nvidia
+    vendor: "0x10de"
+    device: "0x21c4"
+    name: "NVIDIA GeForce GTX 1660 SUPER"
+    subsystem_vendor: "0x1458"
+    subsystem_device: "0x3fcf"
+    vram_mb: 6144
+    category: budget_gaming
+
+  - id: gpu_nvidia_gtx1650
+    type: nvidia
+    vendor: "0x10de"
+    device: "0x1f82"
+    name: "NVIDIA GeForce GTX 1650"
+    subsystem_vendor: "0x1028"
+    subsystem_device: "0x098d"
+    vram_mb: 4096
+    category: budget_gaming
+
+  - id: gpu_amd_rx7900xtx
+    type: amd
+    vendor: "0x1002"
+    device: "0x744c"
+    name: "AMD Radeon RX 7900 XTX"
+    subsystem_vendor: "0x1da2"
+    subsystem_device: "0xe471"
+    vram_mb: 24576
+    category: enthusiast_tier
+
+  - id: gpu_amd_rx6700xt
+    type: amd
+    vendor: "0x1002"
+    device: "0x73df"
+    name: "AMD Radeon RX 6700 XT"
+    subsystem_vendor: "0x1682"
+    subsystem_device: "0x6700"
+    vram_mb: 12288
+    category: high_end_gaming
+
+  - id: gpu_amd_rx5700xt
+    type: amd
+    vendor: "0x1002"
+    device: "0x731f"
+    name: "AMD Radeon RX 5700 XT"
+    subsystem_vendor: "0x1043"
+    subsystem_device: "0x04e2"
+    vram_mb: 8192
+    category: mainstream_gaming
+
+  - id: gpu_amd_rx6600
+    type: amd
+    vendor: "0x1002"
+    device: "0x73ff"
+    name: "AMD Radeon RX 6600"
+    subsystem_vendor: "0x1458"
+    subsystem_device: "0x2408"
+    vram_mb: 8192
+    category: budget_gaming
+
+  - id: gpu_amd_vega_8
+    type: amd
+    vendor: "0x1002"
+    device: "0x15d8"
+    name: "AMD Radeon Vega 8 Graphics"
+    subsystem_vendor: "0x1043"
+    subsystem_device: "0x876b"
+    vram_mb: 0
+    category: integrated
+
+  - id: gpu_intel_hd_620
+    type: intel
+    vendor: "0x8086"
+    device: "0x5916"
+    name: "Intel HD Graphics 620"
+    subsystem_vendor: "0x17aa"
+    subsystem_device: "0x5050"
+    vram_mb: 0
+    category: integrated
+
+  - id: gpu_intel_uhd_770
+    type: intel
+    vendor: "0x8086"
+    device: "0x4680"
+    name: "Intel UHD Graphics 770"
+    subsystem_vendor: "0x1043"
+    subsystem_device: "0x8694"
+    vram_mb: 0
+    category: integrated
+
+  - id: gpu_nvidia_quadro_p2000
+    type: nvidia
+    vendor: "0x10de"
+    device: "0x1c30"
+    name: "NVIDIA Quadro P2000"
+    subsystem_vendor: "0x10de"
+    subsystem_device: "0x11bf"
+    vram_mb: 5120
+    category: workstation
+
+  - id: gpu_amd_radeon_pro_wx4100
+    type: amd
+    vendor: "0x1002"
+    device: "0x67c7"
+    name: "AMD Radeon Pro WX 4100"
+    subsystem_vendor: "0x1002"
+    subsystem_device: "0x0b0d"
+    vram_mb: 4096
+    category: workstation
+
+# ============================================================================
+# MOTHERBOARD DATABASE - Real motherboard models
+# ============================================================================
+motherboards:
+  - id: mb_dell_xps15
+    vendor: "Dell Inc."
+    product_name: "Dell XPS 15 9570"
+    board_name: "0H0CC5"
+    board_vendor: "Dell Inc."
+    bios_vendor: "Dell Inc."
+    bios_version: "1.16.2"
+    bios_date: "08/14/2021"
+    chassis_type: laptop
+    category: laptop_premium
+    
+  - id: mb_asus_rog_strix
+    vendor: "ASUSTeK COMPUTER INC."
+    product_name: "ROG STRIX B550-F GAMING"
+    board_name: "ROG STRIX B550-F GAMING"
+    board_vendor: "ASUSTeK COMPUTER INC."
+    bios_vendor: "American Megatrends Inc."
+    bios_version: "2423"
+    bios_date: "04/14/2023"
+    chassis_type: desktop
+    category: desktop_gaming
+    
+  - id: mb_gigabyte_b450m
+    vendor: "Gigabyte Technology Co., Ltd."
+    product_name: "B450M DS3H"
+    board_name: "B450M DS3H-CF"
+    board_vendor: "Gigabyte Technology Co., Ltd."
+    bios_vendor: "American Megatrends Inc."
+    bios_version: "F61"
+    bios_date: "12/15/2021"
+    chassis_type: desktop
+    category: desktop_budget
+    
+  - id: mb_lenovo_thinkpad
+    vendor: "LENOVO"
+    product_name: "ThinkPad X1 Carbon Gen 9"
+    board_name: "20XW0000US"
+    board_vendor: "LENOVO"
+    bios_vendor: "LENOVO"
+    bios_version: "N32ET76W"
+    bios_date: "09/08/2022"
+    chassis_type: laptop
+    category: laptop_business
+    
+  - id: mb_msi_mag_tomahawk
+    vendor: "Micro-Star International Co., Ltd."
+    product_name: "MAG B660 TOMAHAWK WIFI DDR4"
+    board_name: "MAG B660 TOMAHAWK WIFI DDR4 (MS-7D43)"
+    board_vendor: "Micro-Star International Co., Ltd."
+    bios_vendor: "American Megatrends International, LLC."
+    bios_version: "1.70"
+    bios_date: "05/19/2022"
+    chassis_type: desktop
+    category: desktop_mainstream
+
+  - id: mb_asus_tuf_x570
+    vendor: "ASUSTeK COMPUTER INC."
+    product_name: "TUF GAMING X570-PLUS"
+    board_name: "TUF GAMING X570-PLUS"
+    board_vendor: "ASUSTeK COMPUTER INC."
+    bios_vendor: "American Megatrends Inc."
+    bios_version: "4407"
+    bios_date: "09/22/2022"
+    chassis_type: desktop
+    category: desktop_gaming
+
+  - id: mb_asrock_b450_pro4
+    vendor: "ASRock"
+    product_name: "B450 Pro4"
+    board_name: "B450 Pro4"
+    board_vendor: "ASRock"
+    bios_vendor: "American Megatrends Inc."
+    bios_version: "P4.80"
+    bios_date: "04/17/2021"
+    chassis_type: desktop
+    category: desktop_budget
+
+  - id: mb_msi_mpg_z690
+    vendor: "Micro-Star International Co., Ltd."
+    product_name: "MPG Z690 CARBON WIFI (MS-7D30)"
+    board_name: "MPG Z690 CARBON WIFI (MS-7D30)"
+    board_vendor: "Micro-Star International Co., Ltd."
+    bios_vendor: "American Megatrends International, LLC."
+    bios_version: "1.C0"
+    bios_date: "01/12/2023"
+    chassis_type: desktop
+    category: desktop_high_end
+
+  - id: mb_gigabyte_x570_aorus
+    vendor: "Gigabyte Technology Co., Ltd."
+    product_name: "X570 AORUS ELITE"
+    board_name: "X570 AORUS ELITE"
+    board_vendor: "Gigabyte Technology Co., Ltd."
+    bios_vendor: "American Megatrends Inc."
+    bios_version: "F37"
+    bios_date: "10/12/2022"
+    chassis_type: desktop
+    category: desktop_high_performance
+
+  - id: mb_hp_pavilion_15
+    vendor: "HP"
+    product_name: "HP Pavilion 15 Laptop PC"
+    board_name: "87B2"
+    board_vendor: "HP"
+    bios_vendor: "Insyde"
+    bios_version: "F.34"
+    bios_date: "06/15/2022"
+    chassis_type: laptop
+    category: laptop_budget
+
+  - id: mb_asus_zenbook_14
+    vendor: "ASUSTeK COMPUTER INC."
+    product_name: "ZenBook UX425EA"
+    board_name: "UX425EA"
+    board_vendor: "ASUSTeK COMPUTER INC."
+    bios_vendor: "American Megatrends Inc."
+    bios_version: "UX425EA.304"
+    bios_date: "03/23/2022"
+    chassis_type: laptop
+    category: laptop_premium
+
+  - id: mb_lenovo_ideapad
+    vendor: "LENOVO"
+    product_name: "IdeaPad 5 15ARE05"
+    board_name: "LNVNB161216"
+    board_vendor: "LENOVO"
+    bios_vendor: "LENOVO"
+    bios_version: "E2CN42WW"
+    bios_date: "11/17/2021"
+    chassis_type: laptop
+    category: laptop_mainstream
+
+  - id: mb_acer_aspire_5
+    vendor: "Acer"
+    product_name: "Aspire A515-45"
+    board_name: "Charmeleon_CFS"
+    board_vendor: "Acer"
+    bios_vendor: "Insyde"
+    bios_version: "V1.14"
+    bios_date: "08/30/2021"
+    chassis_type: laptop
+    category: laptop_budget
+
+  - id: mb_razer_blade_15
+    vendor: "Razer"
+    product_name: "Blade 15 Advanced Model (Early 2022) - RZ09-0421"
+    board_name: "CH570"
+    board_vendor: "Razer"
+    bios_vendor: "American Megatrends Inc."
+    bios_version: "1.08"
+    bios_date: "02/24/2022"
+    chassis_type: laptop
+    category: laptop_gaming
+
+  - id: mb_dell_precision_7920
+    vendor: "Dell Inc."
+    product_name: "Precision 7920 Tower"
+    board_name: "0PK096"
+    board_vendor: "Dell Inc."
+    bios_vendor: "Dell Inc."
+    bios_version: "2.19.1"
+    bios_date: "07/21/2022"
+    chassis_type: workstation
+    category: workstation_tower
+
+  - id: mb_supermicro_x11
+    vendor: "Supermicro"
+    product_name: "X11DPi-NT"
+    board_name: "X11DPi-NT"
+    board_vendor: "Supermicro"
+    bios_vendor: "American Megatrends Inc."
+    bios_version: "3.3"
+    bios_date: "12/14/2020"
+    chassis_type: server
+    category: server_dual_socket
+
+  - id: mb_asus_prime_h610m
+    vendor: "ASUSTeK COMPUTER INC."
+    product_name: "PRIME H610M-E D4"
+    board_name: "PRIME H610M-E D4"
+    board_vendor: "ASUSTeK COMPUTER INC."
+    bios_vendor: "American Megatrends Inc."
+    bios_version: "0612"
+    bios_date: "06/10/2022"
+    chassis_type: desktop
+    category: desktop_budget
+
+# ============================================================================
+# NETWORK INTERFACE DATABASE
+# ============================================================================
+network_interfaces:
+  - id: net_realtek_8111
+    manufacturer: Realtek
+    chipset: "RTL8111/8168/8411"
+    type: ethernet
+    mac_oui: "52:54:00"  # QEMU/KVM default
+    
+  - id: net_intel_i219v
+    manufacturer: Intel
+    chipset: "I219-V"
+    type: ethernet
+    mac_oui: "a4:bb:6d"
+    
+  - id: net_intel_ax200
+    manufacturer: Intel
+    chipset: "Wi-Fi 6 AX200"
+    type: wireless
+    mac_oui: "00:1a:2b"
+    
+  - id: net_qualcomm_atheros
+    manufacturer: Qualcomm Atheros
+    chipset: "QCA6174"
+    type: wireless
+    mac_oui: "b8:86:87"
+    
+  - id: net_broadcom_netxtreme
+    manufacturer: Broadcom
+    chipset: "NetXtreme BCM57765"
+    type: ethernet
+    mac_oui: "f0:18:98"
+
+  - id: net_realtek_8125
+    manufacturer: Realtek
+    chipset: "RTL8125 2.5GbE Controller"
+    type: ethernet
+    mac_oui: "00:e0:4c"
+
+  - id: net_intel_i225v
+    manufacturer: Intel
+    chipset: "I225-V 2.5GbE"
+    type: ethernet
+    mac_oui: "d8:5e:d3"
+
+  - id: net_intel_ax210
+    manufacturer: Intel
+    chipset: "Wi-Fi 6E AX210"
+    type: wireless
+    mac_oui: "28:7f:cf"
+
+  - id: net_mediatek_mt7921
+    manufacturer: MediaTek
+    chipset: "MT7921K Wi-Fi 6E"
+    type: wireless
+    mac_oui: "00:0c:e7"
+
+  - id: net_broadcom_bcm4360
+    manufacturer: Broadcom
+    chipset: "BCM4360 802.11ac"
+    type: wireless
+    mac_oui: "ac:bc:32"
+
+  - id: net_killer_e3100
+    manufacturer: "Killer (Intel)"
+    chipset: "Killer E3100X 2.5GbE"
+    type: ethernet
+    mac_oui: "70:85:c2"
+
+  - id: net_aquantia_aqc107
+    manufacturer: Aquantia
+    chipset: "AQC107 10GbE"
+    type: ethernet
+    mac_oui: "00:17:b6"
+
+  - id: net_qualcomm_qca9377
+    manufacturer: Qualcomm Atheros
+    chipset: "QCA9377 802.11ac"
+    type: wireless
+    mac_oui: "ac:e0:10"
+
+  - id: net_marvell_yukon
+    manufacturer: Marvell
+    chipset: "Yukon 88E8056"
+    type: ethernet
+    mac_oui: "00:50:43"
+
+# ============================================================================
+# STORAGE DATABASE
+# ============================================================================
+storage_devices:
+  - id: ssd_samsung_980pro
+    manufacturer: Samsung
+    model: "Samsung SSD 980 PRO 1TB"
+    type: nvme
+    capacity_gb: 1024
+    serial_prefix: "S5GXNX0T"
+    
+  - id: ssd_crucial_mx500
+    manufacturer: Crucial
+    model: "Crucial CT1000MX500SSD1"
+    type: sata
+    capacity_gb: 1000
+    serial_prefix: "2047E61A"
+    
+  - id: ssd_wd_black_sn850
+    manufacturer: "Western Digital"
+    model: "WD Black SN850 1TB"
+    type: nvme
+    capacity_gb: 1024
+    serial_prefix: "21342Y80"
+    
+  - id: ssd_kingston_a2000
+    manufacturer: Kingston
+    model: "Kingston SA2000M81000G"
+    type: nvme
+    capacity_gb: 1024
+    serial_prefix: "50026B76"
+    
+  - id: hdd_seagate_barracuda
+    manufacturer: Seagate
+    model: "Seagate BarraCuda 2TB"
+    type: sata
+    capacity_gb: 2000
+    serial_prefix: "ZA14LHG2"
+
+  - id: ssd_samsung_970evo
+    manufacturer: Samsung
+    model: "Samsung SSD 970 EVO Plus 500GB"
+    type: nvme
+    capacity_gb: 500
+    serial_prefix: "S4EWNF0M"
+
+  - id: ssd_samsung_870evo
+    manufacturer: Samsung
+    model: "Samsung SSD 870 EVO 1TB"
+    type: sata
+    capacity_gb: 1000
+    serial_prefix: "S6PNNG0R"
+
+  - id: ssd_wd_blue_sn570
+    manufacturer: "Western Digital"
+    model: "WD Blue SN570 1TB"
+    type: nvme
+    capacity_gb: 1024
+    serial_prefix: "21481A80"
+
+  - id: ssd_crucial_p3
+    manufacturer: Crucial
+    model: "Crucial P3 1TB"
+    type: nvme
+    capacity_gb: 1024
+    serial_prefix: "2308E6B5"
+
+  - id: ssd_sandisk_ultra_3d
+    manufacturer: SanDisk
+    model: "SanDisk Ultra 3D 1TB"
+    type: sata
+    capacity_gb: 1000
+    serial_prefix: "213245A0"
+
+  - id: ssd_intel_670p
+    manufacturer: Intel
+    model: "Intel SSD 670p Series 512GB"
+    type: nvme
+    capacity_gb: 512
+    serial_prefix: "BTPY143"
+
+  - id: ssd_kingston_nv2
+    manufacturer: Kingston
+    model: "Kingston NV2 1TB"
+    type: nvme
+    capacity_gb: 1024
+    serial_prefix: "50026B82"
+
+  - id: ssd_seagate_firecuda_530
+    manufacturer: Seagate
+    model: "Seagate FireCuda 530 2TB"
+    type: nvme
+    capacity_gb: 2048
+    serial_prefix: "7VS03JBN"
+
+  - id: ssd_adata_xpg_sx8200
+    manufacturer: ADATA
+    model: "ADATA XPG SX8200 Pro 1TB"
+    type: nvme
+    capacity_gb: 1024
+    serial_prefix: "2K5629YY"
+
+  - id: ssd_corsair_mp600
+    manufacturer: Corsair
+    model: "Corsair MP600 PRO 1TB"
+    type: nvme
+    capacity_gb: 1024
+    serial_prefix: "21377H10"
+
+  - id: hdd_wd_blue
+    manufacturer: "Western Digital"
+    model: "WD Blue 1TB"
+    type: sata
+    capacity_gb: 1000
+    serial_prefix: "WD-WCC4"
+
+  - id: hdd_toshiba_p300
+    manufacturer: Toshiba
+    model: "Toshiba P300 2TB"
+    type: sata
+    capacity_gb: 2000
+    serial_prefix: "Z9CE3LVT"
+
+  - id: ssd_sk_hynix_p31
+    manufacturer: "SK hynix"
+    model: "SK hynix Gold P31 1TB"
+    type: nvme
+    capacity_gb: 1024
+    serial_prefix: "AJ85N657"
+
+  - id: ssd_micron_2450
+    manufacturer: Micron
+    model: "Micron 2450 NVMe 512GB"
+    type: nvme
+    capacity_gb: 512
+    serial_prefix: "2239445C"
+
+  - id: hdd_seagate_ironwolf
+    manufacturer: Seagate
+    model: "Seagate IronWolf 4TB"
+    type: sata
+    capacity_gb: 4000
+    serial_prefix: "ZHZ6BJWC"
+
+# ============================================================================
+# LOCALE & TIMEZONE DATABASE
+# ============================================================================
+locales:
+  - id: locale_en_us
+    locale: "en_US.UTF-8"
+    language: "en_US:en"
+    description: "English (United States)"
+    
+  - id: locale_en_gb
+    locale: "en_GB.UTF-8"
+    language: "en_GB:en"
+    description: "English (United Kingdom)"
+    
+  - id: locale_de_de
+    locale: "de_DE.UTF-8"
+    language: "de_DE:de"
+    description: "German (Germany)"
+    
+  - id: locale_fr_fr
+    locale: "fr_FR.UTF-8"
+    language: "fr_FR:fr"
+    description: "French (France)"
+    
+  - id: locale_es_es
+    locale: "es_ES.UTF-8"
+    language: "es_ES:es"
+    description: "Spanish (Spain)"
+    
+  - id: locale_ja_jp
+    locale: "ja_JP.UTF-8"
+    language: "ja_JP:ja"
+    description: "Japanese (Japan)"
+    
+  - id: locale_zh_cn
+    locale: "zh_CN.UTF-8"
+    language: "zh_CN:zh"
+    description: "Chinese (China)"
+    
+  - id: locale_pt_br
+    locale: "pt_BR.UTF-8"
+    language: "pt_BR:pt"
+    description: "Portuguese (Brazil)"
+
+timezones:
+  - id: tz_america_new_york
+    timezone: "America/New_York"
+    utc_offset: "-05:00"
+    description: "Eastern Time (US & Canada)"
+    
+  - id: tz_america_los_angeles
+    timezone: "America/Los_Angeles"
+    utc_offset: "-08:00"
+    description: "Pacific Time (US & Canada)"
+    
+  - id: tz_america_chicago
+    timezone: "America/Chicago"
+    utc_offset: "-06:00"
+    description: "Central Time (US & Canada)"
+    
+  - id: tz_europe_london
+    timezone: "Europe/London"
+    utc_offset: "+00:00"
+    description: "London, UK"
+    
+  - id: tz_europe_paris
+    timezone: "Europe/Paris"
+    utc_offset: "+01:00"
+    description: "Paris, France"
+    
+  - id: tz_europe_berlin
+    timezone: "Europe/Berlin"
+    utc_offset: "+01:00"
+    description: "Berlin, Germany"
+    
+  - id: tz_asia_tokyo
+    timezone: "Asia/Tokyo"
+    utc_offset: "+09:00"
+    description: "Tokyo, Japan"
+    
+  - id: tz_asia_shanghai
+    timezone: "Asia/Shanghai"
+    utc_offset: "+08:00"
+    description: "Beijing, Shanghai, China"
+    
+  - id: tz_australia_sydney
+    timezone: "Australia/Sydney"
+    utc_offset: "+10:00"
+    description: "Sydney, Australia"
+    
+  - id: tz_utc
+    timezone: "UTC"
+    utc_offset: "+00:00"
+    description: "Coordinated Universal Time"
+
+# ============================================================================
+# BATTERY DATABASE (Laptop-specific)
+# ============================================================================
+batteries:
+  - id: bat_lgc_5b10w13931
+    manufacturer: LGC
+    model: "5B10W13931"
+    technology: "Li-poly"
+    capacity_wh: 57
+    voltage_v: 15.36
+    cells: 4
+    category: laptop_premium
+    
+  - id: bat_smp_l19m4pc0
+    manufacturer: SMP
+    model: "L19M4PC0"
+    technology: "Li-ion"
+    capacity_wh: 71
+    voltage_v: 15.36
+    cells: 4
+    category: laptop_high_performance
+    
+  - id: bat_sanyo_45n1113
+    manufacturer: SANYO
+    model: "45N1113"
+    technology: "Li-ion"
+    capacity_wh: 47
+    voltage_v: 11.1
+    cells: 3
+    category: laptop_business
+    
+  - id: bat_simplo_c31n1816
+    manufacturer: Simplo
+    model: "C31N1816"
+    technology: "Li-poly"
+    capacity_wh: 50
+    voltage_v: 11.55
+    cells: 3
+    category: laptop_mainstream
+    
+  - id: bat_celxpert_l19c3pd6
+    manufacturer: Celxpert
+    model: "L19C3PD6"
+    technology: "Li-poly"
+    capacity_wh: 52.5
+    voltage_v: 11.52
+    cells: 3
+    category: laptop_budget
+    
+  - id: bat_panasonic_cf_vzsu0pw
+    manufacturer: Panasonic
+    model: "CF-VZSU0PW"
+    technology: "Li-ion"
+    capacity_wh: 46
+    voltage_v: 11.4
+    cells: 3
+    category: laptop_business
+    
+  - id: bat_samsung_aa_pbvn4np
+    manufacturer: Samsung
+    model: "AA-PBVN4NP"
+    technology: "Li-poly"
+    capacity_wh: 62
+    voltage_v: 15.2
+    cells: 4
+    category: laptop_premium
+    
+  - id: bat_dell_f3ygt
+    manufacturer: "Dell Inc."
+    model: "F3YGT"
+    technology: "Li-ion"
+    capacity_wh: 60
+    voltage_v: 11.4
+    cells: 3
+    category: laptop_premium
+    
+  - id: bat_hp_sr03xl
+    manufacturer: HP
+    model: "SR03XL"
+    technology: "Li-poly"
+    capacity_wh: 52.5
+    voltage_v: 11.55
+    cells: 3
+    category: laptop_budget
+
+# ============================================================================
+# MEMORY (RAM) DATABASE
+# ============================================================================
+memory_configs:
+  - id: mem_16gb_ddr4_3200
+    size_gb: 16
+    size_kb: 16384000
+    speed_mhz: 3200
+    type: DDR4
+    manufacturer: Corsair
+    model: "Vengeance LPX"
+    category: mainstream
+    
+  - id: mem_32gb_ddr4_3600
+    size_gb: 32
+    size_kb: 32768000
+    speed_mhz: 3600
+    type: DDR4
+    manufacturer: "G.Skill"
+    model: "Trident Z RGB"
+    category: high_performance
+    
+  - id: mem_8gb_ddr4_2666
+    size_gb: 8
+    size_kb: 8192000
+    speed_mhz: 2666
+    type: DDR4
+    manufacturer: Crucial
+    model: "CT8G4DFS8266"
+    category: budget
+    
+  - id: mem_64gb_ddr5_4800
+    size_gb: 64
+    size_kb: 65536000
+    speed_mhz: 4800
+    type: DDR5
+    manufacturer: Kingston
+    model: "Fury Beast DDR5"
+    category: enthusiast
+    
+  - id: mem_32gb_ddr5_5600
+    size_gb: 32
+    size_kb: 32768000
+    speed_mhz: 5600
+    type: DDR5
+    manufacturer: Corsair
+    model: "Dominator Platinum"
+    category: high_end
+    
+  - id: mem_16gb_ddr4_2400
+    size_gb: 16
+    size_kb: 16384000
+    speed_mhz: 2400
+    type: DDR4
+    manufacturer: Samsung
+    model: "M471A2K43CB1"
+    category: laptop_mainstream
+    
+  - id: mem_8gb_lpddr4_3733
+    size_gb: 8
+    size_kb: 8192000
+    speed_mhz: 3733
+    type: LPDDR4X
+    manufacturer: SK hynix
+    model: "H9HCNNNBKMMLXR"
+    category: laptop_budget
+    
+  - id: mem_32gb_ddr4_2933
+    size_gb: 32
+    size_kb: 32768000
+    speed_mhz: 2933
+    type: DDR4
+    manufacturer: Micron
+    model: "MTA18ASF2G72AZ"
+    category: laptop_premium
+    
+  - id: mem_128gb_ddr4_3200
+    size_gb: 128
+    size_kb: 131072000
+    speed_mhz: 3200
+    type: DDR4
+    manufacturer: Crucial
+    model: "CT4K32G4DFD832A"
+    category: workstation
+
+# ============================================================================
+# DISPLAY/MONITOR DATABASE
+# ============================================================================
+displays:
+  # Laptop displays
+  - id: display_fhd_144hz
+    name: "eDP-1"
+    resolution: "1920x1080"
+    width: 1920
+    height: 1080
+    refresh_rate: 144
+    manufacturer: BOE
+    model: "NV156FHM-N48"
+    diagonal_inches: 15.6
+    panel_type: IPS
+    category: laptop_gaming
+    
+  - id: display_fhd_60hz
+    name: "eDP-1"
+    resolution: "1920x1080"
+    width: 1920
+    height: 1080
+    refresh_rate: 60
+    manufacturer: "AU Optronics"
+    model: "B156HAN02.1"
+    diagonal_inches: 15.6
+    panel_type: IPS
+    category: laptop_mainstream
+    
+  - id: display_4k_60hz
+    name: "eDP-1"
+    resolution: "3840x2160"
+    width: 3840
+    height: 2160
+    refresh_rate: 60
+    manufacturer: "Sharp"
+    model: "LQ156D1JX01"
+    diagonal_inches: 15.6
+    panel_type: OLED
+    category: laptop_premium
+    
+  - id: display_qhd_165hz
+    name: "eDP-1"
+    resolution: "2560x1440"
+    width: 2560
+    height: 1440
+    refresh_rate: 165
+    manufacturer: BOE
+    model: "NE156QHM-NY1"
+    diagonal_inches: 15.6
+    panel_type: IPS
+    category: laptop_gaming
+    
+  - id: display_1366x768_60hz
+    name: "eDP-1"
+    resolution: "1366x768"
+    width: 1366
+    height: 768
+    refresh_rate: 60
+    manufacturer: Innolux
+    model: "N156BGE-E42"
+    diagonal_inches: 15.6
+    panel_type: TN
+    category: laptop_budget
+    
+  - id: display_13_fhd_60hz
+    name: "eDP-1"
+    resolution: "1920x1080"
+    width: 1920
+    height: 1080
+    refresh_rate: 60
+    manufacturer: "LG Display"
+    model: "LP133WF4-SPB1"
+    diagonal_inches: 13.3
+    panel_type: IPS
+    category: laptop_ultrabook
+    
+  - id: display_14_2k_90hz
+    name: "eDP-1"
+    resolution: "2880x1800"
+    width: 2880
+    height: 1800
+    refresh_rate: 90
+    manufacturer: Samsung
+    model: "ATNA40YK01"
+    diagonal_inches: 14.0
+    panel_type: OLED
+    category: laptop_premium
+    
+  # Desktop/external displays
+  - id: display_desktop_fhd_60hz
+    name: "HDMI-1"
+    resolution: "1920x1080"
+    width: 1920
+    height: 1080
+    refresh_rate: 60
+    manufacturer: Dell
+    model: "P2422H"
+    diagonal_inches: 24.0
+    panel_type: IPS
+    category: desktop_office
+    
+  - id: display_desktop_1440p_144hz
+    name: "DP-1"
+    resolution: "2560x1440"
+    width: 2560
+    height: 1440
+    refresh_rate: 144
+    manufacturer: ASUS
+    model: "VG27AQ"
+    diagonal_inches: 27.0
+    panel_type: IPS
+    category: desktop_gaming
+    
+  - id: display_desktop_4k_144hz
+    name: "DP-1"
+    resolution: "3840x2160"
+    width: 3840
+    height: 2160
+    refresh_rate: 144
+    manufacturer: LG
+    model: "27GN950-B"
+    diagonal_inches: 27.0
+    panel_type: "Nano IPS"
+    category: desktop_premium
+    
+  - id: display_ultrawide_1440p_100hz
+    name: "DP-1"
+    resolution: "3440x1440"
+    width: 3440
+    height: 1440
+    refresh_rate: 100
+    manufacturer: "LG"
+    model: "34GN850-B"
+    diagonal_inches: 34.0
+    panel_type: "Nano IPS"
+    category: desktop_ultrawide
+
+# ============================================================================
+# OPERATING SYSTEM DATABASE
+# ============================================================================
+operating_systems:
+  - id: os_ubuntu_2204
+    name: Ubuntu
+    version: "22.04.4 LTS"
+    version_id: "22.04"
+    codename: "Jammy Jellyfish"
+    kernel_release: "5.15.0-91-generic"
+    kernel_version: "#101-Ubuntu SMP Tue Nov 14 13:30:08 UTC 2023"
+    
+  - id: os_ubuntu_2004
+    name: Ubuntu
+    version: "20.04.6 LTS"
+    version_id: "20.04"
+    codename: "Focal Fossa"
+    kernel_release: "5.4.0-169-generic"
+    kernel_version: "#187-Ubuntu SMP Thu Nov 23 14:52:28 UTC 2023"
+    
+  - id: os_debian_12
+    name: Debian
+    version: "12 (bookworm)"
+    version_id: "12"
+    codename: "bookworm"
+    kernel_release: "6.1.0-13-amd64"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Debian 6.1.55-1 (2023-09-29)"
+    
+  - id: os_fedora_39
+    name: Fedora
+    version: "39 (Workstation Edition)"
+    version_id: "39"
+    codename: ""
+    kernel_release: "6.5.6-300.fc39.x86_64"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Thu Oct 5 03:00:00 UTC 2023"
+    
+  - id: os_arch_latest
+    name: "Arch Linux"
+    version: "rolling"
+    version_id: "rolling"
+    codename: ""
+    kernel_release: "6.6.1-arch1-1"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Thu Nov 2 10:00:00 UTC 2023"
+
+  - id: os_ubuntu_2310
+    name: Ubuntu
+    version: "23.10"
+    version_id: "23.10"
+    codename: "Mantic Minotaur"
+    kernel_release: "6.5.0-14-generic"
+    kernel_version: "#14-Ubuntu SMP PREEMPT_DYNAMIC Tue Nov 14 14:59:49 UTC 2023"
+
+  - id: os_debian_11
+    name: Debian
+    version: "11 (bullseye)"
+    version_id: "11"
+    codename: "bullseye"
+    kernel_release: "5.10.0-26-amd64"
+    kernel_version: "#1 SMP Debian 5.10.197-1 (2023-09-29)"
+
+  - id: os_fedora_38
+    name: Fedora
+    version: "38 (Workstation Edition)"
+    version_id: "38"
+    codename: ""
+    kernel_release: "6.4.15-200.fc38.x86_64"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Thu Sep 7 03:00:00 UTC 2023"
+
+  - id: os_centos_stream_9
+    name: "CentOS Stream"
+    version: "9"
+    version_id: "9"
+    codename: ""
+    kernel_release: "5.14.0-391.el9.x86_64"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Wed Nov 8 17:15:14 UTC 2023"
+
+  - id: os_opensuse_tumbleweed
+    name: "openSUSE Tumbleweed"
+    version: "20231025"
+    version_id: "20231025"
+    codename: ""
+    kernel_release: "6.5.7-1-default"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Wed Oct 25 10:00:00 UTC 2023"
+
+  - id: os_manjaro_23
+    name: "Manjaro Linux"
+    version: "23.1.0"
+    version_id: "23.1.0"
+    codename: "Vulcan"
+    kernel_release: "6.5.9-1-MANJARO"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Tue Nov 7 10:00:00 UTC 2023"
+
+  - id: os_pop_os_2204
+    name: "Pop!_OS"
+    version: "22.04 LTS"
+    version_id: "22.04"
+    codename: "jammy"
+    kernel_release: "6.5.6-76060506-generic"
+    kernel_version: "#202310241732~1698175039~22.04~c876251-Ubuntu SMP PREEMPT_DYNAMIC"
+
+  - id: os_linux_mint_21
+    name: "Linux Mint"
+    version: "21.2"
+    version_id: "21"
+    codename: "Victoria"
+    kernel_release: "5.15.0-87-generic"
+    kernel_version: "#97-Ubuntu SMP Mon Oct 2 21:09:21 UTC 2023"
+
+  - id: os_elementary_7
+    name: "elementary OS"
+    version: "7.1 Horus"
+    version_id: "7.1"
+    codename: "horus"
+    kernel_release: "6.2.0-35-generic"
+    kernel_version: "#35~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Oct 6 10:22:42 UTC 2023"
+
+  - id: os_zorin_16
+    name: "Zorin OS"
+    version: "16.3"
+    version_id: "16"
+    codename: "focal"
+    kernel_release: "5.15.0-88-generic"
+    kernel_version: "#98~20.04.1-Ubuntu SMP Mon Oct 9 16:10:36 UTC 2023"
+
+  - id: os_kali_2023
+    name: "Kali GNU/Linux"
+    version: "2023.3"
+    version_id: "2023.3"
+    codename: "kali-rolling"
+    kernel_release: "6.5.0-kali3-amd64"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Debian 6.5.6-1kali1 (2023-10-09)"
+
+  - id: os_rocky_9
+    name: "Rocky Linux"
+    version: "9.3 (Blue Onyx)"
+    version_id: "9.3"
+    codename: "Blue Onyx"
+    kernel_release: "5.14.0-362.8.1.el9_3.x86_64"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Tue Oct 31 10:15:14 EDT 2023"
+
+  - id: os_alma_9
+    name: "AlmaLinux"
+    version: "9.3 (Shamrock Pampas Cat)"
+    version_id: "9.3"
+    codename: "Shamrock Pampas Cat"
+    kernel_release: "5.14.0-362.13.1.el9_3.x86_64"
+    kernel_version: "#1 SMP PREEMPT_DYNAMIC Wed Nov 8 17:15:14 EST 2023"
+
+# ============================================================================
+# HARDWARE COMPATIBILITY RULES
+# ============================================================================
+compatibility_rules:
+  # Intel CPUs typically pair with Intel integrated GPUs
+  - cpu: cpu_intel_*
+    gpu: gpu_intel_*
+    compatibility: high
+    
+  # AMD CPUs don't have integrated graphics (Ryzen desktop)
+  - cpu: cpu_amd_*
+    gpu: gpu_amd_*
+    compatibility: medium
+    
+  # Laptop motherboards should have laptop CPUs
+  - motherboard_category: laptop_*
+    cpu_category: laptop_*
+    compatibility: required
+    
+  # Desktop motherboards with desktop CPUs
+  - motherboard_category: desktop_*
+    cpu_category: desktop_*
+    compatibility: required
+
+# ============================================================================
+# PRESET PROFILES (Common configurations)
+# ============================================================================
+preset_profiles:
+  - name: gaming_enthusiast
+    description: "High-end gaming PC"
+    components:
+      cpu: cpu_amd_ryzen_5950x
+      gpu: gpu_nvidia_rtx3090
+      motherboard: mb_asus_rog_strix
+      network: net_intel_i219v
+      storage: ssd_samsung_980pro
+      os: os_ubuntu_2204
+      
+  - name: budget_gamer
+    description: "Budget gaming PC"
+    components:
+      cpu: cpu_amd_ryzen_3600
+      gpu: gpu_nvidia_gtx1050ti
+      motherboard: mb_gigabyte_b450m
+      network: net_realtek_8111
+      storage: ssd_crucial_mx500
+      os: os_ubuntu_2004
+      
+  - name: workstation_laptop
+    description: "Business laptop"
+    components:
+      cpu: cpu_intel_i7_8750h
+      gpu: gpu_intel_uhd630
+      motherboard: mb_dell_xps15
+      network: net_intel_ax200
+      storage: ssd_samsung_980pro
+      os: os_ubuntu_2204
+      
+  - name: developer_desktop
+    description: "Development workstation"
+    components:
+      cpu: cpu_intel_i7_11700k
+      gpu: gpu_nvidia_rtx3060
+      motherboard: mb_msi_mag_tomahawk
+      network: net_intel_i219v
+      storage: ssd_wd_black_sn850
+      os: os_arch_latest
+
+  - name: ultra_enthusiast
+    description: "Top-tier enthusiast build"
+    components:
+      cpu: cpu_amd_threadripper_3970x
+      gpu: gpu_nvidia_rtx4090
+      motherboard: mb_asus_rog_strix
+      network: net_aquantia_aqc107
+      storage: ssd_seagate_firecuda_530
+      os: os_ubuntu_2310
+
+  - name: compact_office
+    description: "Basic office laptop"
+    components:
+      cpu: cpu_intel_i5_7200u
+      gpu: gpu_intel_hd_620
+      motherboard: mb_hp_pavilion_15
+      network: net_realtek_8111
+      storage: ssd_crucial_mx500
+      os: os_linux_mint_21
+
+  - name: content_creator
+    description: "Video editing and content creation"
+    components:
+      cpu: cpu_amd_ryzen_7700x
+      gpu: gpu_nvidia_rtx3070ti
+      motherboard: mb_gigabyte_x570_aorus
+      network: net_intel_i225v
+      storage: ssd_samsung_980pro
+      os: os_pop_os_2204
+
+  - name: gaming_laptop
+    description: "High-performance gaming laptop"
+    components:
+      cpu: cpu_intel_i7_12700h
+      gpu: gpu_nvidia_rtx3060
+      motherboard: mb_razer_blade_15
+      network: net_intel_ax210
+      storage: ssd_samsung_970evo
+      os: os_ubuntu_2204
+
+  - name: budget_student
+    description: "Affordable student laptop"
+    components:
+      cpu: cpu_amd_ryzen_5_4500u
+      gpu: gpu_amd_vega_8
+      motherboard: mb_acer_aspire_5
+      network: net_qualcomm_qca9377
+      storage: ssd_kingston_nv2
+      os: os_ubuntu_2004
+
+  - name: server_rack
+    description: "Dual-socket server configuration"
+    components:
+      cpu: cpu_intel_xeon_e5_2680v4
+      gpu: gpu_intel_uhd630
+      motherboard: mb_supermicro_x11
+      network: net_intel_i219v
+      storage: hdd_seagate_ironwolf
+      os: os_rocky_9
+
+  - name: workstation_premium
+    description: "Professional workstation"
+    components:
+      cpu: cpu_intel_i9_13900k
+      gpu: gpu_nvidia_quadro_p2000
+      motherboard: mb_dell_precision_7920
+      network: net_intel_i225v
+      storage: ssd_intel_670p
+      os: os_centos_stream_9
+
+  - name: amd_budget_build
+    description: "Budget AMD desktop"
+    components:
+      cpu: cpu_amd_ryzen_3_3200g
+      gpu: gpu_amd_vega_8
+      motherboard: mb_asrock_b450_pro4
+      network: net_realtek_8111
+      storage: ssd_adata_xpg_sx8200
+      os: os_manjaro_23
+
+  - name: ultrabook_premium
+    description: "Premium thin and light"
+    components:
+      cpu: cpu_intel_i5_1135g7
+      gpu: gpu_intel_iris_xe
+      motherboard: mb_asus_zenbook_14
+      network: net_intel_ax200
+      storage: ssd_sk_hynix_p31
+      os: os_fedora_39
+
+# ============================================================================
+# RANDOMIZATION STRATEGIES
+# ============================================================================
+randomization_strategies:
+  conservative:
+    description: "Realistic, commonly seen configurations"
+    serial_entropy: low
+    mac_randomize: oui_preserve
+    combination_logic: preset_based
+    
+  moderate:
+    description: "Mix of common and uncommon combinations"
+    serial_entropy: medium
+    mac_randomize: partial
+    combination_logic: compatibility_based
+    
+  aggressive:
+    description: "Maximum variety, may create unusual combinations"
+    serial_entropy: high
+    mac_randomize: full
+    combination_logic: random
+
+# ============================================================================
+# METADATA
+# ============================================================================
+metadata:
+  total_cpus: 18
+  total_gpus: 21
+  total_motherboards: 18
+  total_networks: 15
+  total_storage: 21
+  total_os: 18
+  
+  # Theoretical unique combinations
+  possible_combinations: 129772800  # 18×21×18×15×21×18
+  
+  # With serial number randomization (8 hex chars = 16^8)
+  practical_unique_identities: "5.57 × 10^17 (557 quadrillion)"
+  
+  # Component breakdown by category
+  cpu_categories:
+    desktop_budget: 2
+    desktop_mainstream: 2
+    desktop_high_performance: 3
+    desktop_high_end: 2
+    laptop_budget: 2
+    laptop_mainstream: 1
+    laptop_high_performance: 3
+    server_workstation: 1
+    workstation_high_end: 1
+    
+  gpu_categories:
+    integrated: 5
+    budget_gaming: 3
+    mainstream_gaming: 3
+    high_end_gaming: 4
+    enthusiast_tier: 2
+    workstation: 2
+    
+  motherboard_categories:
+    desktop_budget: 3
+    desktop_mainstream: 1
+    desktop_gaming: 2
+    desktop_high_performance: 1
+    desktop_high_end: 1
+    laptop_budget: 2
+    laptop_mainstream: 1
+    laptop_premium: 2
+    laptop_business: 1
+    laptop_gaming: 1
+    workstation_tower: 1
+    server_dual_socket: 1

@@ -1,0 +1,170 @@
+LD_PRELOAD=./identity.so firefox
+[IDENTITY INTERCEPTOR] Loaded - Profile: B450M_E5-2680_dffe
+[IDENTITY INTERCEPTOR] Full system identity spoofing active
+[IDENTITY INTERCEPTOR] Loaded - Profile: B450M_E5-2680_dffe
+[IDENTITY INTERCEPTOR] Full system identity spoofing active
+[IDENTITY INTERCEPTOR] Loaded - Profile: B450M_E5-2680_dffe
+[IDENTITY INTERCEPTOR] Full system identity spoofing active
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+Usage:
+  gsettings [--schemadir SCHEMADIR] get SCHEMA[:PATH] KEY
+
+Get the value of KEY
+
+Arguments:
+  SCHEMADIR A directory to search for additional schemas
+  SCHEMA    The name of the schema
+  PATH      The path, for relocatable schemas
+  KEY       The key within the schema
+
+
+[IDENTITY INTERCEPTOR] Loaded - Profile: B450M_E5-2680_dffe
+[IDENTITY INTERCEPTOR] Full system identity spoofing active
+Gtk-Message: 12:11:16.474: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+_IceTransSocketUNIXConnect: Cannot connect to non-local host god-help-me2
+_IceTransSocketUNIXConnect: Cannot connect to non-local host god-help-me2
+^CExiting due to channel error.
+
