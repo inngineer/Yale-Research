@@ -426,27 +426,45 @@ char* getenv(const char *name) {{
     
     // Locale and language spoofing
     if (strcmp(name, "LANG") == 0) {{
+        if (gpu_spoofing_disabled) {{
+            return real_getenv(name);
+        }}
         return "{locale}";
     }}
     if (strcmp(name, "LANGUAGE") == 0) {{
+        if (gpu_spoofing_disabled) {{
+            return real_getenv(name);
+        }}
         return "{language}";
     }}
     if (strcmp(name, "LC_ALL") == 0) {{
+        if (gpu_spoofing_disabled) {{
+            return real_getenv(name);
+        }}
         return "{locale}";
     }}
     if (strcmp(name, "LC_CTYPE") == 0) {{
+        if (gpu_spoofing_disabled) {{
+            return real_getenv(name);
+        }}
         return "{locale}";
     }}
     
     // Timezone spoofing
     if (strcmp(name, "TZ") == 0) {{
+        if (gpu_spoofing_disabled) {{
+            return real_getenv(name);
+        }}
         return "{timezone}";
     }}
     
-// Display spoofing (safe: only override when no real DISPLAY is set)
+    // Display spoofing (safe: only override when no real DISPLAY is set)
     if (strcmp(name, "DISPLAY") == 0) {{
+        if (gpu_spoofing_disabled) {{
+            return real_getenv(name);
+        }}
         char *real = real_getenv(name);
-        if (real && real[0] != '\0') {{
+        if (real && real[0] != '\\0') {{
             return real;
         }}
         return "{display}";
