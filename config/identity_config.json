@@ -1,79 +1,79 @@
 {
   "version": "2.0",
-  "identity_profile": "ZenBook_CPU_b049",
-  "hostname": "zenbook-i7-12700h-bc91",
-  "_id_suffix": "ff",
+  "identity_profile": "Aspire_5800H_ab96",
+  "hostname": "aspire-7-fa35",
+  "_id_suffix": "e1",
   "hardware": {
-    "machine_id": "75cd8058713a1b08bd72408e5f6332f6",
-    "product_uuid": "b40d68c5-f668-287f-37af-62112023fd73",
-    "product_serial": "SN-ZENB2213F9",
-    "board_serial": "MB-C8AE85",
-    "chassis_serial": "CH-FBCCD3",
-    "product_name": "ZenBook UX425EA",
-    "board_name": "UX425EA",
-    "board_vendor": "ASUSTeK COMPUTER INC.",
-    "bios_vendor": "American Megatrends Inc.",
-    "bios_version": "UX425EA.304",
-    "bios_date": "03/23/2022"
+    "machine_id": "464b5d13866aa8589c887e0b6fe18599",
+    "product_uuid": "1bcf43cd-d9d3-38f1-7cd4-0861f4b6ca97",
+    "product_serial": "SN-ASPIDA2543",
+    "board_serial": "MB-477738",
+    "chassis_serial": "CH-0EE0B4",
+    "product_name": "Aspire A515-45",
+    "board_name": "Charmeleon_CFS",
+    "board_vendor": "Acer",
+    "bios_vendor": "Insyde",
+    "bios_version": "V1.14",
+    "bios_date": "08/30/2021"
   },
   "cpu": {
-    "model": "Intel(R) Core(TM) i7-12700H CPU @ 2.30GHz",
-    "cores": 14,
-    "threads": 20,
-    "vendor_id": "GenuineIntel",
-    "mhz": "2300.000",
-    "cache_size": "24576 KB"
+    "model": "AMD Ryzen 7 5800H with Radeon Graphics",
+    "cores": 8,
+    "threads": 16,
+    "vendor_id": "AuthenticAMD",
+    "mhz": "3200.000",
+    "cache_size": "16384 KB"
   },
   "network": {
     "interfaces": {
-      "eth0": "b8:86:87",
-      "wlan0": "b8:86:87"
+      "eth0": "28:7f:cf",
+      "wlan0": "28:7f:cf"
     }
   },
   "storage": {
-    "sda_serial": "S6PNNG0R66566D",
-    "nvme_serial": "S6PNNG0RFE8849",
-    "sda_model": "Samsung SSD 870 EVO 1TB",
-    "nvme_model": "Samsung SSD 870 EVO 1TB"
+    "sda_serial": "AJ85N6579EBDD2",
+    "nvme_serial": "AJ85N657050F0A",
+    "sda_model": "SK hynix Gold P31 1TB",
+    "nvme_model": "SK hynix Gold P31 1TB"
   },
   "os": {
-    "name": "Ubuntu",
-    "version": "23.10",
-    "kernel_release": "6.5.0-14-generic",
-    "kernel_version": "#14-Ubuntu SMP PREEMPT_DYNAMIC Tue Nov 14 14:59:49 UTC 2023"
+    "name": "Manjaro Linux",
+    "version": "23.1.0",
+    "kernel_release": "6.5.9-1-MANJARO",
+    "kernel_version": "#1 SMP PREEMPT_DYNAMIC Tue Nov 7 10:00:00 UTC 2023"
   },
   "gpu": {
     "nvidia_vendor": "0x10de",
-    "nvidia_device": "0x21c4",
+    "nvidia_device": "0x2482",
     "intel_vendor": "0x8086",
     "intel_device": "0x3e9b"
   },
   "boot": {
-    "boot_id": "00288332-ead3-4a8b-a288-6a9da9a0cb22",
-    "random_uuid": "d03e45e1-6ed3-c441-c5f8-4b6abc97cf79"
+    "boot_id": "9d592bde-2d37-3044-acbd-b3cfa080d7f7",
+    "random_uuid": "2bb10176-0855-5cb1-50b8-b199521d4fe6"
   },
   "environment": {
-    "locale": "en_GB.UTF-8",
-    "language": "en_GB:en",
-    "timezone": "Asia/Shanghai",
+    "locale": "de_DE.UTF-8",
+    "language": "de_DE:de",
+    "timezone": "Europe/London",
     "display": ":0"
   },
   "battery": {
     "has_battery": true,
-    "manufacturer": "LGC",
-    "model": "5B10W13931",
+    "manufacturer": "Celxpert",
+    "model": "L19C3PD6",
     "technology": "Li-poly",
-    "capacity_wh": 57,
-    "voltage_v": 15.36,
-    "cells": 4
+    "capacity_wh": 52.5,
+    "voltage_v": 11.52,
+    "cells": 3
   },
   "memory": {
-    "size_gb": 32,
-    "size_kb": 32768000,
-    "speed_mhz": 5600,
-    "type": "DDR5",
-    "manufacturer": "Corsair",
-    "model": "Dominator Platinum"
+    "size_gb": 8,
+    "size_kb": 8192000,
+    "speed_mhz": 3733,
+    "type": "LPDDR4X",
+    "manufacturer": "SK hynix",
+    "model": "H9HCNNNBKMMLXR"
   },
   "display": {
     "name": "eDP-1",
@@ -90,12 +90,12 @@
     "generated_by": "formulate_identity.py",
     "strategy": "moderate",
     "components_used": {
-      "cpu": "cpu_intel_i7_12700h",
-      "gpu": "gpu_nvidia_gtx1660super",
-      "motherboard": "mb_asus_zenbook_14",
-      "network": "net_qualcomm_atheros",
-      "storage": "ssd_samsung_870evo",
-      "os": "os_ubuntu_2310"
+      "cpu": "cpu_amd_ryzen_7_5800h",
+      "gpu": "gpu_nvidia_rtx3070ti",
+      "motherboard": "mb_acer_aspire_5",
+      "network": "net_intel_ax210",
+      "storage": "ssd_sk_hynix_p31",
+      "os": "os_manjaro_23"
     }
   }
 }
