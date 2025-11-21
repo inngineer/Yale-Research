@@ -57,6 +57,7 @@ struct net_spoof {{
 static time_t time_offset = 0;
 static int timing_variance = 0;
 static int gpu_spoofing_disabled = 0;
+static int safe_mode = 0;
 
 // Generated identity data
 static const char* FAKE_HOSTNAME = "{hostname}";
@@ -147,9 +148,21 @@ static int is_gpu_path(const char* path) {{
     return 0;
 }}
 
+// Helper to bypass certain mappings in safe_mode for fragile GUI apps
+static int should_bypass_path(const char* path) {{
+    if (!safe_mode) {{
+        return 0;
+    }}
+    // In safe_mode, avoid spoofing battery, backlight and meminfo
+    if (strncmp(path, "/sys/class/power_supply/", 24) == 0) return 1;
+    if (strncmp(path, "/sys/class/backlight/", 21) == 0) return 1;
+    if (strcmp(path, "/proc/meminfo") == 0) return 1;
+    return 0;
+}}
+
 static FILE* (*real_fopen)(const char*, const char*) = NULL;
 FILE* fopen(const char* path, const char* mode) {{
-    if (is_gpu_path(path)) {{
+    if (is_gpu_path(path) || should_bypass_path(path)) {{
         if (!real_fopen) {{ real_fopen = dlsym(RTLD_NEXT, "fopen"); }}
         return real_fopen(path, mode);
     }}
@@ -165,7 +178,7 @@ FILE* fopen(const char* path, const char* mode) {{
 
 static FILE* (*real_fopen64)(const char*, const char*) = NULL;
 FILE* fopen64(const char* path, const char* mode) {{
-    if (is_gpu_path(path)) {{
+    if (is_gpu_path(path) || should_bypass_path(path)) {{
         if (!real_fopen64) {{ real_fopen64 = dlsym(RTLD_NEXT, "fopen64"); }}
         return real_fopen64(path, mode);
     }}
@@ -189,7 +202,7 @@ int open(const char *pathname, int flags, ...) {{
         va_end(args);
     }}
     
-    if (is_gpu_path(pathname)) {{
+    if (is_gpu_path(pathname) || should_bypass_path(pathname)) {{
         if (!real_open) {{ real_open = dlsym(RTLD_NEXT, "open"); }}
         return real_open(pathname, flags, mode);
     }}
@@ -222,7 +235,7 @@ int open64(const char *pathname, int flags, ...) {{
         va_end(args);
     }}
     
-    if (is_gpu_path(pathname)) {{
+    if (is_gpu_path(pathname) || should_bypass_path(pathname)) {{
         if (!real_open64) {{ real_open64 = dlsym(RTLD_NEXT, "open64"); }}
         return real_open64(pathname, flags, mode);
     }}
@@ -255,7 +268,7 @@ int openat(int dirfd, const char *pathname, int flags, ...) {{
         va_end(args);
     }}
     
-    if (is_gpu_path(pathname)) {{
+    if (is_gpu_path(pathname) || should_bypass_path(pathname)) {{
         if (!real_openat) {{ real_openat = dlsym(RTLD_NEXT, "openat"); }}
         return real_openat(dirfd, pathname, flags, mode);
     }}
@@ -423,6 +436,11 @@ char* getenv(const char *name) {{
     if (strcmp(name, "HOSTNAME") == 0) {{
         return (char*)FAKE_HOSTNAME;
     }}
+
+    // In safe_mode, avoid spoofing other environment variables
+    if (safe_mode) {{
+        return real_getenv(name);
+    }}
     
     // Locale and language spoofing
     if (strcmp(name, "LANG") == 0) {{
@@ -512,7 +530,8 @@ void init_interceptor(void) {{
         for (int i = 0; gpu_apps[i] != NULL; i++) {{
             if (strstr(cmdline, gpu_apps[i]) != NULL) {{
                 gpu_spoofing_disabled = 1;
-                printf("[IDENTITY INTERCEPTOR] GPU spoofing disabled for: %s\\n", gpu_apps[i]);
+                safe_mode = 1;
+                printf("[IDENTITY INTERCEPTOR] GPU spoofing disabled for: %s (safe mode enabled)\\n", gpu_apps[i]);
                 break;
             }}
         }}
