@@ -443,8 +443,12 @@ char* getenv(const char *name) {{
         return "{timezone}";
     }}
     
-    // Display spoofing
+// Display spoofing (safe: only override when no real DISPLAY is set)
     if (strcmp(name, "DISPLAY") == 0) {{
+        char *real = real_getenv(name);
+        if (real && real[0] != '\0') {{
+            return real;
+        }}
         return "{display}";
     }}
     
